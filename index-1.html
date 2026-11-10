@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Labflyer DIY Wooden Drone STEM Kit | One Hundred Billions - LABS</title>
+<meta name="description" content="Labflyer: a DIY wooden drone STEM kit with remote controller. A hands-on crash course for future engineers.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0c;--card:#151516;--line:#2a2a2c;--gold:#d4a64a;--orange:#e8742a;--text:#ece7dd;--muted:#a39e93}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.2}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1050px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:rgba(11,11,12,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-weight:700;font-size:15px;letter-spacing:.5px}
+.brand img{width:34px;height:34px;border-radius:50%}
+nav ul{display:flex;gap:22px;list-style:none;font-size:14px;color:var(--muted)}
+nav ul a:hover{color:var(--gold)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--orange));color:#111;font-weight:600;padding:13px 26px;border-radius:999px;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:none;border:1px solid var(--gold);color:var(--gold)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:70px 0}
+.eyebrow{color:var(--gold);letter-spacing:3px;font-size:12px;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:clamp(34px,6vw,56px);margin-bottom:18px}
+.hero p{color:var(--muted);max-width:480px;margin-bottom:28px}
+.hero .btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero img{width:100%;max-width:340px;justify-self:center;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(232,116,42,.18)}
+section{padding:64px 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(26px,4vw,36px);margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:34px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.shot{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.shot img{width:100%;display:block}
+.shot span{display:block;padding:12px 16px;font-size:14px;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px}
+.card.pop{border-color:var(--gold)}
+.card h3{font-size:20px;margin-bottom:6px}
+.price{font-size:34px;font-weight:600;color:var(--gold);margin:8px 0 14px}
+.card ul{list-style:none;color:var(--muted);font-size:15px;margin-bottom:22px}
+.card li{padding:5px 0 5px 22px;position:relative}
+.card li:before{content:"✦";position:absolute;left:0;color:var(--orange);font-size:12px;top:9px}
+.card .btn{width:100%;text-align:center}
+.lic{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.lic p,.about p{color:var(--muted)}
+.lic h3{font-size:18px;margin-bottom:8px;color:var(--gold)}
+.note{margin-top:28px;font-size:13px;color:var(--muted);border-left:3px solid var(--gold);padding-left:14px}
+.cta{text-align:center}
+.cta h2{margin-bottom:12px}
+.cta p{color:var(--muted);margin-bottom:26px}
+footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-size:13px;color:var(--muted)}
+@media(max-width:760px){nav ul{display:none}.hero{grid-template-columns:1fr;padding:44px 0;text-align:center}.hero p{margin-inline:auto}.hero .btns{justify-content:center}}
+
+.art{justify-self:center;width:100%;max-width:340px;aspect-ratio:1;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(232,116,42,.18);background:radial-gradient(circle at 50% 40%,#1d1710,#0b0b0c 70%);display:grid;place-items:center}
+.art svg{width:86%}
+.steps{counter-reset:s}
+.steps .card{position:relative;padding-top:52px}
+.steps .card:before{counter-increment:s;content:"0" counter(s);position:absolute;top:18px;left:28px;font-family:'Playfair Display',serif;font-size:22px;color:var(--orange)}
+.steps p,.card p{color:var(--muted);font-size:15px}
+.more{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:14px;padding:16px 20px;background:var(--card);max-width:620px;margin:auto}
+.more img{width:44px;height:44px;border-radius:50%;flex:none}
+.more small{display:block;color:var(--muted);font-size:12px;letter-spacing:2px;text-transform:uppercase}
+.more b{font-family:'Playfair Display',serif;font-weight:600;font-size:17px}
+.more span{margin-left:auto;color:var(--gold);font-size:14px;white-space:nowrap}
+.more:hover{border-color:var(--gold)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="brand" href="#top"><img src="logo.png" alt="One Hundred Billions - LABS logo">ONE HUNDRED BILLIONS - LABS</a>
+<ul><li><a href="#kit">The Kit</a></li><li><a href="#course">Crash Course</a></li><li><a href="#order">Get Yours</a></li><li><a href="#faq">FAQ</a></li></ul>
+</nav></div></header>
+
+<main id="top">
+<div class="wrap hero">
+<div>
+<div class="eyebrow">Labflyer · STEM Kit</div>
+<h1>Build it. Fly it. Learn how it works.</h1>
+<p>The DIY Wooden Drone STEM Kit comes with the drone and a remote controller. A hands-on crash course that turns curious kids and beginners into future engineers.</p>
+<div class="btns"><a class="btn" href="#order">Get the kit</a><a class="btn ghost" href="#course">See the crash course</a></div>
+</div>
+<div class="art"><svg viewBox="0 0 400 400" fill="none" stroke="#d4a64a" stroke-width="4" stroke-linecap="round" aria-label="Illustration of a wooden quadcopter drone">
+<path d="M110 110L290 290M290 110L110 290" stroke-width="9" stroke="#8a6a2e"/>
+<g><circle cx="95" cy="95" r="52"/><path d="M60 95h70M95 60v70" stroke="#e8742a" stroke-width="3"/></g>
+<g><circle cx="305" cy="95" r="52"/><path d="M270 95h70M305 60v70" stroke="#e8742a" stroke-width="3"/></g>
+<g><circle cx="95" cy="305" r="52"/><path d="M60 305h70M95 270v70" stroke="#e8742a" stroke-width="3"/></g>
+<g><circle cx="305" cy="305" r="52"/><path d="M270 305h70M305 270v70" stroke="#e8742a" stroke-width="3"/></g>
+<rect x="160" y="160" width="80" height="80" rx="16" fill="#151516" stroke-width="5"/>
+<circle cx="200" cy="200" r="12" fill="#e8742a" stroke="none"/>
+</svg></div>
+</div>
+
+<section id="kit"><div class="wrap">
+<h2>What's in the kit</h2>
+<p class="sub">Everything you need to go from parts to flying.</p>
+<div class="grid">
+<div class="card"><h3>Wooden drone</h3><p>A build-it-yourself wooden airframe you assemble piece by piece.</p></div>
+<div class="card"><h3>Remote controller</h3><p>Fly your finished drone with the included remote controller.</p></div>
+<div class="card"><h3>Build guide</h3><p>Clear steps that explain what each part does as you go.</p></div>
+</div>
+<p class="note">Edit these three cards to list exactly what is in your box.</p>
+</div></section>
+
+<section id="course"><div class="wrap">
+<h2>Crash Course for Future Engineers</h2>
+<p class="sub">Four stages, from parts to proud pilot.</p>
+<div class="grid steps">
+<div class="card"><h3>Build</h3><p>Assemble the wooden frame and learn how the structure carries the load.</p></div>
+<div class="card"><h3>Understand</h3><p>Discover lift, thrust and balance, and why a drone stays in the air.</p></div>
+<div class="card"><h3>Set up</h3><p>Connect the parts and pair the remote controller.</p></div>
+<div class="card"><h3>Fly and improve</h3><p>Take off, test, tweak and make it fly better.</p></div>
+</div>
+</div></section>
+
+<section id="order"><div class="wrap">
+<h2>Get your kit</h2>
+<p class="sub">Order through WhatsApp and we'll confirm price, delivery and availability.</p>
+<div class="grid">
+<div class="card pop"><h3>DIY Wooden Drone STEM Kit</h3><div class="price">Price on request</div>
+<ul><li>Wooden drone, build-it-yourself</li><li>Remote controller included</li><li>Hands-on STEM learning</li></ul>
+<a class="btn" href="https://wa.me/27XXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20order%20the%20Labflyer%20drone%20kit">Order on WhatsApp</a></div>
+</div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+<h2>Good to know</h2>
+<p class="sub">A few quick answers.</p>
+<div class="lic">
+<div><h3>Who is it for?</h3><p>Curious kids, students, parents, teachers and anyone who likes building things.</p></div>
+<div><h3>Do I need experience?</h3><p>No. The build is guided, and you learn by doing.</p></div>
+<div><h3>Flying safely</h3><p>Fly in open spaces away from people and animals, and have an adult supervise younger builders.</p></div>
+</div>
+</div></section>
+
+<section style="padding:36px 0"><div class="wrap">
+<a class="more" href="#"><!-- replace # with your wallpaper site link -->
+<img src="logo.png" alt=""><div><small>Also from our labs</small><b>Legendary HERO Wallpapers</b></div><span>View →</span>
+</a></div></section>
+</main>
+
+<footer><div class="wrap">Labflyer is a product of One Hundred Billions - LABS · South Africa</div></footer>
+</body>
+</html>
