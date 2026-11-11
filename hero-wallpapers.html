@@ -23,7 +23,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--text);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:var(--serif);line-height:1.2;text-wrap:balance}
+h1,h2,h3{font-family:var(--serif);line-height:1.2;text-wrap:balance;font-variant-numeric:lining-nums}
 p{text-wrap:pretty}
 img{max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
@@ -67,6 +67,7 @@ section{padding:var(--space-section) 0;border-top:1px solid var(--line)}
 .story h2{font-size:clamp(30px,5vw,44px);margin-bottom:24px}
 .story blockquote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(19px,2.6vw,22px);line-height:1.55;margin-bottom:24px}
 .story p{color:var(--muted);font-size:17px;line-height:1.8;margin-bottom:16px}
+.story .eyebrow{color:var(--gold);font-size:12px;line-height:1.6;margin-bottom:16px}
 .story p:last-child{margin-bottom:0}
 
 /* Founder Edition */
@@ -90,7 +91,7 @@ section{padding:var(--space-section) 0;border-top:1px solid var(--line)}
 .price{font-size:34px;font-weight:600;line-height:1.2;color:var(--gold);margin:8px 0 16px}
 .card ul{flex:1;list-style:none;color:var(--muted);font-size:15px;margin-bottom:24px}
 .card li{position:relative;padding:6px 0 6px 24px}
-.card li:before{content:"鉁�";position:absolute;left:0;top:10px;color:var(--orange);font-size:12px}
+.card li:before{content:"\2726";position:absolute;left:0;top:10px;color:var(--orange);font-size:12px}
 .card .btn{width:100%}
 .note{margin-top:32px;font-size:13px;color:var(--muted);border-left:3px solid var(--gold);padding-left:14px}
 
@@ -134,7 +135,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
 <main id="top">
 
 <div class="wrap hero">
-<p class="eyebrow">HERO 鈥� PREMIUM WALLPAPERS</p>
+<p class="eyebrow">HERO &bull; PREMIUM WALLPAPERS</p>
 <h1>Dark. Gold. Fire. Made for your screen.</h1>
 <div class="btns"><a class="btn" href="#pricing">See pricing</a><a class="btn ghost" href="#gallery">View gallery</a></div>
 </div>
@@ -142,8 +143,8 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
 <section class="story"><div class="wrap"><div class="story-inner">
 <p class="eyebrow">THE BEGINNING</p>
 <h2>A dream, made visible.</h2>
-<blockquote>"A township kid with a dream so big it scares you, because if it doesn't it ain't big enough!"</blockquote>
-<p>That dream became a logo 鈥� three bars rising, two gold rings overlapping 鈥� and that logo became a collection.</p>
+<blockquote>&ldquo;A township kid with a dream so big it scares you, because if it doesn&rsquo;t it ain&rsquo;t big enough!&rdquo;</blockquote>
+<p>That dream became a logo &mdash; three bars rising, two gold rings overlapping &mdash; and that logo became a collection.</p>
 <p>You are not buying decoration for your phone. You are buying a piece of that beginning.</p>
 </div></div></section>
 
@@ -205,6 +206,6 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
 
 </main>
 
-<footer><div class="wrap">One Hundred Billions - LABS 路 South Africa<br>All previews shown are watermarked.</div></footer>
+<footer><div class="wrap">One Hundred Billions - LABS &middot; South Africa<br>All previews shown are watermarked.</div></footer>
 </body>
 </html>
