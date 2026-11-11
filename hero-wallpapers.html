@@ -84,6 +84,18 @@ section{padding:var(--space-section) 0;border-top:1px solid var(--line)}
 .shot img{display:block;width:100%;aspect-ratio:9/16;object-fit:cover}
 .shot figcaption{padding:14px 16px;font-size:14px;font-weight:600;letter-spacing:.06em;color:var(--gold);text-align:center}
 
+/* Why it is worth it */
+.why-item{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:24px 0;border-top:1px solid var(--line)}
+.why>.why-item:first-child{border-top:0;padding-top:0}
+.num{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;color:var(--gold);font-family:var(--serif);font-weight:700;font-size:18px}
+.why-item h3{font-size:clamp(19px,2.6vw,22px);margin-bottom:8px}
+.why-item p{color:var(--muted);max-width:62ch}
+.why summary{list-style:none;cursor:pointer;width:fit-content;margin-top:8px}
+.why summary::-webkit-details-marker{display:none}
+.why .less,.why details[open] .more{display:none}
+.why details[open] .less{display:inline}
+.why details[open] summary{margin-bottom:24px}
+
 /* Pricing */
 .card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
 .card.pop{border-color:var(--gold)}
@@ -162,6 +174,21 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
 <figure class="shot"><img src="hero-003.jpg" alt="HERO 003 - Liquid Gold Breakout" width="1152" height="2048" loading="lazy"><figcaption>HERO 003 - Liquid Gold Breakout</figcaption></figure>
 </div>
 <p class="sub after">Watermarked previews. Purchased files are delivered clean, in full resolution.</p>
+</div></section>
+
+<section id="worth"><div class="wrap">
+<h2>Why it is worth it</h2>
+<p class="sub">What you are buying here is an original &mdash; numbered, sealed, and verified &mdash; from the beginning of a brand.</p>
+<div class="why">
+<div class="why-item"><span class="num" aria-hidden="true">1</span><div><h3>Only 100 ever. Never to be reprinted.</h3><p>When you purchase a HERO, only you will ever own it. And when they are gone, they are gone! Scarcity is the value. The Founder Edition 001, 002 and 003 &mdash; the very first three, start at $5 expected to increase till $100.</p></div></div>
+<details>
+<summary class="btn ghost"><span class="more">Read more</span><span class="less">Read less</span></summary>
+<div class="why-item"><span class="num" aria-hidden="true">2</span><div><h3>Sealed and verified inside the pixels.</h3><p>Each HERO carries a hidden encrypted code inside its pixels. It can only be opened with its own private key. A sealed file that actually decrypts. Most people selling AI art have none of that. A screenshot cannot carry it. It&rsquo;s our very own exclusive One Hundred Billions Collections.</p></div></div>
+<div class="why-item"><span class="num" aria-hidden="true">3</span><div><h3>Your private key = True ownership.</h3><p>You receive the private key for your edition. That key is the proof. No key, no original.</p></div></div>
+<div class="why-item"><span class="num" aria-hidden="true">4</span><div><h3>Craft, not a one-click image.</h3><p>Each HERO went through fire, marble cracking, gold leaf, toning, re-toning.</p></div></div>
+<div class="why-item"><span class="num" aria-hidden="true">5</span><div><h3>You own the story.</h3><p>Early supporters are remembered when a brand goes global. This is the Founder Edition &mdash; the first 3 of the 100.</p></div></div>
+</details>
+</div>
 </div></section>
 
 <section id="pricing"><div class="wrap">
