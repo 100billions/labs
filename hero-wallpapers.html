@@ -77,7 +77,60 @@ section{padding:var(--space-section) 0;border-top:1px solid var(--line)}
 .founder em{color:var(--gold)}
 .statement{font-family:var(--serif);font-size:clamp(20px,3vw,24px);line-height:1.5;color:var(--text)}
 
-/* Gallery */
+/* === FREE-SCROLL SWELL - no sticky, page never stops === */
+.swell-section{
+  padding:36px 20px;
+  border-top:none;
+}
+.swell-sticky{
+  max-width:420px;
+  margin:0 auto;
+  text-align:center;
+}
+.swell-label{
+  color:var(--gold);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.swell-card{
+  position:relative;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:var(--card);
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+  transform:scale(var(--card-scale, 0.96));
+}
+.swell-card img{
+  display:block;
+  width:100%;
+  aspect-ratio:9/16;
+  object-fit:cover;
+  transform:scale(var(--img-scale, 0.88));
+}
+.swell-caption{
+  padding:14px 16px;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:.06em;
+  color:var(--gold);
+  background:var(--card);
+  border-top:1px solid var(--line);
+}
+.swell-badge{
+  position:absolute;
+  top:12px;left:12px;z-index:2;
+  background:rgba(11,11,12,.65);
+  border:1px solid rgba(212,166,74,.5);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:700;
+}
+  /* Gallery */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
 .grid.gallery{grid-template-columns:repeat(auto-fit,minmax(240px,320px));justify-content:center}
 .shot{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--card)}
@@ -166,16 +219,45 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
 <p class="statement">This is not a picture. A picture is free, and so is a screenshot.</p>
 </div></section>
 
-<section id="gallery"><div class="wrap">
+<section id="gallery" style="padding-bottom:0"><div class="wrap" style="text-align:center">
 <h2>Gallery</h2>
-<div class="grid gallery" style="margin-top:32px">
-<figure class="shot"><img src="hero-001.jpg" alt="HERO 001 - Fire Storm" width="1152" height="2048" loading="lazy"><figcaption>HERO 001 - Fire Storm</figcaption></figure>
-<figure class="shot"><img src="hero-002.jpg" alt="HERO 002 - Cracked Marble" width="1152" height="2048" loading="lazy"><figcaption>HERO 002 - Cracked Marble</figcaption></figure>
-<figure class="shot"><img src="hero-003.jpg" alt="HERO 003 - Liquid Gold Breakout" width="1152" height="2048" loading="lazy"><figcaption>HERO 003 - Liquid Gold Breakout</figcaption></figure>
-</div>
-<p class="sub after">Watermarked previews. Purchased files are delivered clean, in full resolution.</p>
+<p class="sub">Keep scrolling — each Founder Edition swells as you pass it. The page never stops.</p>
 </div></section>
 
+<section class="swell-section" data-swell>
+  <div class="swell-sticky">
+    <p class="swell-label">Founder Edition — 001 / 100</p>
+    <div class="swell-card"><span class="swell-badge">FOUNDER EDITION</span>
+      <img src="hero-001.jpg" alt="HERO 001 - Fire Storm" width="1152" height="2048" loading="lazy">
+      <div class="swell-caption">HERO 001 - Fire Storm</div>
+    </div>
+  </div>
+</section>
+
+<section class="swell-section" data-swell>
+  <div class="swell-sticky">
+    <p class="swell-label">Founder Edition — 002 / 100</p>
+    <div class="swell-card"><span class="swell-badge">FOUNDER EDITION</span>
+      <img src="hero-002.jpg" alt="HERO 002 - Cracked Marble" width="1152" height="2048" loading="lazy">
+      <div class="swell-caption">HERO 002 - Cracked Marble</div>
+    </div>
+  </div>
+</section>
+
+<section class="swell-section" data-swell>
+  <div class="swell-sticky">
+    <p class="swell-label">Founder Edition — 003 / 100</p>
+    <div class="swell-card"><span class="swell-badge">FOUNDER EDITION</span>
+      <img src="hero-003.jpg" alt="HERO 003 - Liquid Gold Breakout" width="1152" height="2048" loading="lazy">
+      <div class="swell-caption">HERO 003 - Liquid Gold Breakout</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:24px"><div class="wrap" style="text-align:center">
+<p class="sub">Watermarked previews. Purchased files are delivered clean, in full resolution.</p>
+<div class="btns"><a class="btn" href="#pricing">See pricing</a></div>
+</div></section>
 <section id="worth"><div class="wrap">
 <h2>Why it is worth it</h2>
 <p class="sub">What you are buying here is an original &mdash; numbered, sealed, and verified &mdash; from the beginning of a brand.</p>
@@ -234,5 +316,23 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
 </main>
 
 <footer><div class="wrap">One Hundred Billions - LABS &middot; South Africa<br>All previews shown are watermarked.</div></footer>
+<script>
+// FREE-SCROLL SWELL: no sticky, no pin, page never stops
+function updateSwell(){
+  var vh = window.innerHeight;
+  document.querySelectorAll('[data-swell]').forEach(function(section){
+    var r = section.getBoundingClientRect();
+    var centre = r.top + r.height / 2;
+    var distance = Math.abs(centre - vh / 2);
+    var progress = 1 - Math.min(1, distance / vh);
+    progress = Math.max(0, progress);
+    progress = progress * progress * (3 - 2 * progress);
+    section.style.setProperty('--img-scale', (0.88 + progress * 0.20).toFixed(3));
+    section.style.setProperty('--card-scale', (0.96 + progress * 0.04).toFixed(3));
+  });
+  requestAnimationFrame(updateSwell);
+}
+updateSwell();
+</script>
 </body>
 </html>
