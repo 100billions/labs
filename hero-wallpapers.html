@@ -77,7 +77,18 @@ section{padding:var(--space-section) 0;border-top:1px solid var(--line)}
 .founder .wrap>h2{font-size:clamp(20px,3vw,24px);margin-bottom:24px}
 .founder em{color:var(--gold)}
 ..statement{font-family:var(--sans);font-size:17px;line-height:1.8;color:var(--muted);font-weight:400}
-
+.countdown{text-align:center}
+.countdown-inner{max-width:760px;margin:0 auto}
+.countdown-timer{display:flex;justify-content:center;gap:16px;margin:32px 0 12px;flex-wrap:wrap}
+.cd-unit{min-width:78px}
+.cd-num{font-family:var(--serif);font-size:clamp(38px,8vw,56px);line-height:1;font-variant-numeric:tabular-nums;color:var(--text)}
+.cd-label{display:block;margin-top:8px;color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase}
+.cd-date{color:var(--muted);font-size:13px;margin-bottom:24px}
+.notify-form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:520px;margin:0 auto}
+.notify-form input{flex:1;min-width:220px;min-height:48px;padding:0 18px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--text);font:inherit}
+.notify-form input:focus{outline:2px solid var(--gold);outline-offset:2px}
+.notify-msg{margin-top:16px;color:var(--gold);font-size:14px;min-height:20px}
+  
 /* === FREE-SCROLL SWELL - no sticky, page never stops === */
 .swell-section{
   padding:36px 20px;
@@ -201,7 +212,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
 <main id="top">
 
 <div class="wrap hero">
-<p class="eyebrow">HERO &bull; PREMIUM WALLPAPERS</p>
+<p class="eyebrow">HERO &bull; PREMIUM WALLPAPERS &bull; FOUNDER EDITION</p>
 <div style="height:28px"></div>
 <h1>Dark. Gold. Fire. Made for your screen.</h1>
 <div class="btns"><a class="btn" href="#pricing">See pricing</a><a class="btn ghost" href="#gallery">View gallery</a></div>
@@ -217,6 +228,26 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
 
 <section class="founder"><div class="wrap founder-inner">
 <p class="eyebrow">INTRODUCING THE FOUNDER EDITION</p>
+  <!-- COUNTDOWN - ONLY NEW SECTION -->
+<section class="countdown" id="countdown"><div class="wrap countdown-inner">
+<p class="eyebrow">FOUNDER EDITION &bull; DROPS 25 DECEMBER 2026</p>
+<h2>HERO Founder Edition is coming.</h2>
+<p class="sub">Only 100 will ever exist.</p>
+<div id="cd-timer" class="countdown-timer" aria-live="polite">
+<div class="cd-unit"><span class="cd-num" id="cd-days">00</span><span class="cd-label">Days</span></div>
+<div class="cd-unit"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Hours</span></div>
+<div class="cd-unit"><span class="cd-num" id="cd-minutes">00</span><span class="cd-label">Minutes</span></div>
+<div class="cd-unit"><span class="cd-num" id="cd-seconds">00</span><span class="cd-label">Seconds</span></div>
+</div>
+<p class="cd-date">25 December 2026 &bull; 12:00 AM SAST</p>
+<div id="cd-live" style="display:none">
+<h2>Founder Edition is live.</h2>
+<p class="sub">The first three HERO pieces are now available.</p>
+<div class="btns"><a class="btn" href="#pricing">Shop Founder Edition</a></div>
+</div>
+<form class="notify-form" id="notify-form"><label for="notify-email" style="position:absolute;left:-9999px">Email</label><input id="notify-email" type="email" required placeholder="Your email"><button class="btn" type="submit">Notify me at launch</button></form>
+<p class="notify-msg" id="notify-msg" aria-live="polite"></p>
+</div></section>
   <div style="height:28px"></div>
 <h2>The first three of <em>only 100.</em></h2>
 <p class="statement">This is not a picture. A picture is free, and so is a screenshot.</p>
@@ -335,6 +366,27 @@ function updateSwell(){
   requestAnimationFrame(updateSwell);
 }
 updateSwell();
+  var launchTime = Date.UTC(2026,11,24,22,0,0);
+function pad(n){return String(n).padStart(2,'0');}
+function tick(){
+  var diff = launchTime - Date.now();
+  if(diff<=0){
+    document.getElementById('cd-timer').style.display='none';
+    document.getElementById('notify-form').style.display='none';
+    document.getElementById('cd-live').style.display='block';
+    return;
+  }
+  var d=Math.floor(diff/(1000*60*60*24));
+  var h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  var m=Math.floor((diff%(1000*60*60))/(1000*60));
+  var s=Math.floor((diff%(1000*60))/1000);
+  document.getElementById('cd-days').textContent=pad(d);
+  document.getElementById('cd-hours').textContent=pad(h);
+  document.getElementById('cd-minutes').textContent=pad(m);
+  document.getElementById('cd-seconds').textContent=pad(s);
+}
+tick(); setInterval(tick,1000);
+document.getElementById('notify-form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('notify-msg').textContent='You are on the list. Your key will find you.';});
 </script>
 </body>
 </html>
