@@ -339,8 +339,8 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
 </div></section>
 
 <section id="contact"><div class="wrap cta">
-<h2>Ready to order?</h2>
-<p>Message us to pick your wallpapers and receive your files.</p>
+<h2 id="reserve-heading">Reserve your piece now!</h2>
+<p id="reserve-sub">Message us to see if reservations are still available.</p>
 <a class="btn" href="https://wa.me/27626716857?text=Hello%20OHB%20-%20LABS%2C%20I%20saw%20the%20Founder%20Edition.%20I%20want%20to%20reserve%20my%20piece%20of%20the%20beginning.%20Which%20HERO%20can%20I%20reserve%3F">Chat on WhatsApp</a>
 </div></section>
 
@@ -370,6 +370,8 @@ function tick(){
   var diff = launchTime - Date.now();
   if(diff<=0){
     document.querySelectorAll('.reserve-btn').forEach(function(btn){ btn.textContent='Order'; });
+    document.getElementById('reserve-heading').textContent='Order your piece now!';
+    document.getElementById('reserve-sub').textContent='Message us to see if pieces are still available.';
     document.getElementById('cd-timer').style.display='none';
     document.getElementById('notify-form').style.display='none';
     document.getElementById('cd-live').style.display='block';
