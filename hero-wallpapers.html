@@ -387,7 +387,7 @@ function tick(){
   document.getElementById('cd-seconds').textContent=pad(s);
 }
 tick(); setInterval(tick,1000);
-document.getElementById('notify-form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('notify-msg').textContent='You are on the list. Your key will find you.';});
+document.getElementById('notify-form').addEventListener('submit',function(e){e.preventDefault();var email=document.getElementById('notify-email').value;document.getElementById('notify-msg').textContent='Opening 【entity-WhatsApp¦canonical_name=WhatsApp】 — tap Send to join the list.';window.open('https://wa.me/27626716857?text='+encodeURIComponent('Hello OHB - LABS, please notify me at launch. My email is: '+email));});
 </script>
 </body>
 </html>
