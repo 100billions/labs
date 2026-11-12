@@ -310,13 +310,13 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
 <div class="grid">
 <div class="card"><h3>Single Wallpaper</h3><div class="price">$5</div>
 <ul><li>1 wallpaper, full resolution</li><li>Personal use licence</li><li>No watermark</li></ul>
-<a class="btn ghost" href="#contact">Order</a></div>
+<a class="btn ghost reserve-btn" href="#contact">Reserve</a></div>
 <div class="card pop"><h3>Collection Pack</h3><div class="price">$25</div>
 <ul><li>All current wallpapers</li><li>Phone, tablet and desktop sizes</li><li>Personal use licence</li></ul>
-<a class="btn" href="#contact">Order</a></div>
+<a class="btn reserve-btn" href="#contact">Reserve</a></div>
 <div class="card"><h3>Commercial Licence</h3><div class="price">$50</div>
 <ul><li>Pack plus commercial use</li><li>Written licence (PDF)</li><li>Use in your business and marketing</li></ul>
-<a class="btn ghost" href="#contact">Order</a></div>
+<a class="btn ghost reserve-btn" href="#contact">Reserve</a></div>
 </div>
 <p class="note">Prices are examples in USD. Payment details are shared when you place an order.</p>
 </div></section>
@@ -369,6 +369,7 @@ function pad(n){return String(n).padStart(2,'0');}
 function tick(){
   var diff = launchTime - Date.now();
   if(diff<=0){
+    document.querySelectorAll('.reserve-btn').forEach(function(btn){ btn.textContent='Order'; });
     document.getElementById('cd-timer').style.display='none';
     document.getElementById('notify-form').style.display='none';
     document.getElementById('cd-live').style.display='block';
