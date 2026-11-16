@@ -37,6 +37,42 @@ nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-h
 .brand-name{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:17px;letter-spacing:.02em;color:var(--text);text-transform:lowercase}
 .brand-labs{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:12px;letter-spacing:.45em;color:var(--gold);text-transform:uppercase;text-align:center;padding-left:.45em}
 .brand img{width:70px;height:70px;border-radius:50%;flex:none}
+  .menu-dropdown{position:relative}
+.menu-dropdown summary{
+  list-style:none;
+  cursor:pointer;
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+  color:#111;
+  font-weight:600;
+  font-size:14px;
+  padding:10px 18px;
+  border-radius:999px;
+}
+.menu-dropdown summary::-webkit-details-marker{display:none}
+.dropdown-list{
+  position:absolute;
+  right:0;
+  top:100%;
+  margin-top:10px;
+  min-width:200px;
+  list-style:none;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:8px;
+  box-shadow:0 20px 40px rgba(0,0,0,.5);
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.dropdown-list a{
+  display:block;
+  padding:12px 14px;
+  border-radius:10px;
+  color:var(--text);
+  font-size:15px;
+}
+.dropdown-list a:hover{background:rgba(212,166,74,.12);color:var(--gold)}
 nav ul{display:flex;gap:8px;list-style:none;font-size:14px;color:var(--muted)}
 nav ul a{display:flex;align-items:center;min-height:44px;padding:0 12px;border-radius:999px;transition:color .2s}
 nav ul a:hover{color:var(--gold)}
@@ -143,7 +179,16 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
 <body>
 <header><div class="wrap"><nav>
 <a class="brand" href="#top"><img src="logo.png" alt="One Hundred Billions - LABS logo"><span class="brand-text"><span class="brand-name">one hundred billions</span><span class="brand-labs">LABS</span></span></a>
-<ul><li><a href="#gallery">Gallery</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#licence">Licence</a></li><li><a href="#contact">Contact</a></li></ul>
+<details class="menu-dropdown">
+<summary>Menu ☰</summary>
+<ul class="dropdown-list">
+<li><a href="#top">Home</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#licence">Licence</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</details>
 </nav></div></header>
 <main id="top">
 <div class="wrap hero">
