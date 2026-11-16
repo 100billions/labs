@@ -218,6 +218,50 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-si
 </main>
 
 <footer><div class="wrap">Labflyer is a product of One Hundred Billions - LABS · South Africa</div></footer>
+<script>
+async function loadCarousel(){
+  const carousel = document.getElementById('hero-carousel');
+  const dotsBox = document.getElementById('hero-dots');
+  const repo = '100billions/labs';
+  const folder = 'carousel';
+  let images = [];
+  try{
+    const res = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}`);
+    const files = await res.json();
+    images = files.filter(f => /\.(jpg|jpeg|png|webp|gif|avif)$/i.test(f.name))
+                   .sort((a,b) => a.name.localeCompare(b.name))
+                   .map(f => f.download_url);
+  }catch(e){ images = []; }
+  if(images.length === 0){ images = ['labflyer.webp']; }
+  carousel.innerHTML = '';
+  dotsBox.innerHTML = '';
+  images.forEach((src, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'carousel-slide';
+    slide.innerHTML = `<img src="${src}" alt="Labflyer picture ${i+1}">`;
+    carousel.appendChild(slide);
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i===0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Slide ' + (i+1));
+    dot.onclick = () => carousel.scrollTo({left: carousel.clientWidth * i, behavior:'smooth'});
+    dotsBox.appendChild(dot);
+  });
+  carousel.addEventListener('scroll', () => {
+    const idx = Math.round(carousel.scrollLeft / carousel.clientWidth);
+    dotsBox.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i===idx));
+  }, {passive:true});
+  let auto = setInterval(nextSlide, 4000);
+  function nextSlide(){
+    const max = carousel.scrollWidth - carousel.clientWidth;
+    if(carousel.scrollLeft >= max - 5){ carousel.scrollTo({left:0, behavior:'smooth'}); }
+    else{ carousel.scrollBy({left: carousel.clientWidth, behavior:'smooth'}); }
+  }
+  carousel.addEventListener('touchstart', () => clearInterval(auto), {passive:true});
+  carousel.addEventListener('mouseenter', () => clearInterval(auto));
+  carousel.addEventListener('mouseleave', () => { clearInterval(auto); auto = setInterval(nextSlide, 4000); });
+}
+loadCarousel();
+</script>
 </body>
 </html>
  
