@@ -157,12 +157,9 @@ section{padding:var(--space-section) 0;border-top:1px solid var(--line)}
 .cta p{color:var(--muted);margin-bottom:24px}
 footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-size:13px;line-height:1.7;color:var(--muted)}
 @media(max-width:760px){
-  header{position:static}
-  nav{flex-direction:column;align-items:flex-start;gap:0;padding-top:12px}
-  nav ul{width:100%;overflow-x:auto;scrollbar-width:none;gap:0}
-  nav ul::-webkit-scrollbar{display:none}
-  nav ul a{padding:0 14px;white-space:nowrap}
-  nav ul li:first-child a{padding-left:0}
+  header{position:sticky}
+  nav{flex-direction:row;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+  .menu-dropdown{flex:none}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -388,5 +385,17 @@ function animate(){
 }
 animate();
 </script>
+  <script>
+document.addEventListener('click', function(e){
+  document.querySelectorAll('.menu-dropdown[open]').forEach(function(d){
+    if(!d.contains(e.target)){ d.removeAttribute('open'); }
+  });
+});
+document.querySelectorAll('.dropdown-list a').forEach(function(link){
+  link.addEventListener('click', function(){
+    document.querySelectorAll('.menu-dropdown[open]').forEach(function(d){ d.removeAttribute('open'); });
+  });
+});
+  </script>
 </body>
 </html>
