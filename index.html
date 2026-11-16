@@ -119,7 +119,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-si
 .carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .carousel::-webkit-scrollbar{display:none}
 .carousel-slide{flex:0 0 100%;scroll-snap-align:center;display:grid;place-items:center;aspect-ratio:4/3;overflow:hidden;background:#0b0b0c;border-radius:18px}
-.carousel-slide img{width:100%;height:100%;object-fit:cover;border-radius:18px;display:block}
+.carousel-slide img{width:100%;height:100%;max-width:none;object-fit:cover;border-radius:18px;display:block}
 .carousel-dots{display:flex;gap:8px;justify-content:center;padding:10px 0 4px}
 .carousel-dots .dot{width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer;padding:0}
 .carousel-dots .dot.active{background:var(--gold)}
