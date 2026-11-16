@@ -114,9 +114,11 @@ section>.wrap>h2{font-size:clamp(26px,4vw,36px);margin-bottom:8px}
 footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-size:13px;color:var(--muted)}
 @media(max-width:760px){nav ul{display:none}.hero{grid-template-columns:1fr;padding:44px 0;text-align:center}.hero p{margin-inline:auto}.hero .btns{justify-content:center}}
 
-.art{justify-self:center;width:100%;max-width:550px;aspect-ratio:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(232,116,42,.18);background:radial-gradient(circle at 50% 40%,#1d1710,#0b0b0c 70%);display:block}
+.art{justify-self:center;width:100%;max-width:560px;aspect-ratio:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(56,189,248,.35),0 0 40px rgba(56,189,248,.18);background:radial-gradient(circle at 50% 40%,#0e1a22,#0b0b0c 70%);display:block;position:relative;overflow:hidden}
  .carousel-wrap{position:relative;overflow:hidden;border-radius:18px;width:100%}
-.carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.art::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);animation:shimmer-sweep 3.5s ease-in-out infinite}
+@keyframes shimmer-sweep{0%{transform:translateX(-120%)}60%,100%{transform:translateX(120%)}}
+ .carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .carousel::-webkit-scrollbar{display:none}
 .carousel-slide{flex:0 0 100%;scroll-snap-align:center;display:grid;place-items:center;aspect-ratio:4/3;overflow:hidden;background:#0b0b0c;border-radius:18px}
 .carousel-slide img{width:100%;height:100%;max-width:none;object-fit:cover;border-radius:18px;display:block}
