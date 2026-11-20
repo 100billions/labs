@@ -56,15 +56,15 @@ nav ul a:hover{color:var(--gold)}
   border-radius:999px;
 }
 .menu-dropdown summary::-webkit-details-marker{display:none}
- .sub-menu summary{background:none !important;color:var(--text) !important;padding:12px 14px !important;border-radius:10px !important;font-weight:400 !important;list-style:none;cursor:pointer;}
-.sub-menu summary:hover{background:rgba(212,166,74,.12) !important;color:var(--gold) !important;}
-.sub-menu summary::-webkit-details-marker{display:none;}
+.sub-btn{display:block;width:100%;text-align:left;background:none;border:none;padding:12px 14px;border-radius:10px;color:var(--text);font-size:15px;cursor:pointer;font-family:inherit;}
+.sub-btn:hover{background:rgba(212,166,74,.12);color:var(--gold);}
+.sub-list{list-style:none;padding:0;margin:0;}
 .dropdown-list{
   position:absolute;
   right:0;
   top:100%;
   margin-top:10px;
-  min-width:200px;
+  min-width:260px;
   list-style:none;
   background:var(--card);
   border:1px solid var(--line);
@@ -77,7 +77,7 @@ nav ul a:hover{color:var(--gold)}
 }
 .dropdown-list a{
   display:block;
-  padding:12px 14px;
+    padding:12px 14px;
   border-radius:10px;
   color:var(--text);
   font-size:15px;
@@ -93,7 +93,7 @@ nav ul a:hover{color:var(--gold)}
 .hero .btns{display:flex;gap:12px;flex-wrap:wrap}
 .hero img{width:100%;max-width:340px;justify-self:center;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(232,116,42,.18)}
 section{padding:64px 0;border-top:1px solid var(--line)}
-section>.wrap>h2{font-size:clamp(26px,4vw,36px);margin-bottom:8px}
+ section>.wrap>h2{font-size:clamp(26px,4vw,36px);margin-bottom:8px}
 .sub{color:var(--muted);margin-bottom:34px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
 .shot{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
@@ -113,17 +113,16 @@ section>.wrap>h2{font-size:clamp(26px,4vw,36px);margin-bottom:8px}
 .note{margin-top:28px;font-size:13px;color:var(--muted);border-left:3px solid var(--gold);padding-left:14px}
 .cta{text-align:center}
 .cta h2{margin-bottom:12px}
-.cta p{color:var(--muted);margin-bottom:26px}
+ .cta p{color:var(--muted);margin-bottom:26px}
 footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-size:13px;color:var(--muted)}
 @media(max-width:760px){nav ul{display:none}.hero{grid-template-columns:1fr;padding:44px 0;text-align:center}.hero p{margin-inline:auto}.hero .btns{justify-content:center}}
-
 .art{justify-self:center;width:100%;max-width:560px;aspect-ratio:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(56,189,248,.35),0 0 40px rgba(56,189,248,.18);background:radial-gradient(circle at 50% 40%,#0e1a22,#0b0b0c 70%);display:block;position:relative;overflow:hidden}
  .carousel-wrap{position:relative;overflow:hidden;border-radius:18px;width:100%}
 .art::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);animation:shimmer-sweep 3.5s ease-in-out infinite}
 @keyframes shimmer-sweep{0%{transform:translateX(-120%)}60%,100%{transform:translateX(120%)}}
  .carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .carousel::-webkit-scrollbar{display:none}
-.carousel-slide{flex:0 0 100%;scroll-snap-align:center;display:grid;place-items:center;aspect-ratio:4/3;overflow:hidden;background:#0b0b0c;border-radius:18px}
+ .carousel-slide{flex:0 0 100%;scroll-snap-align:center;display:grid;place-items:center;aspect-ratio:4/3;overflow:hidden;background:#0b0b0c;border-radius:18px}
 .carousel-slide img{width:100%;height:100%;max-width:none;object-fit:cover;border-radius:18px;display:block}
 .carousel-dots{display:flex;gap:8px;justify-content:center;padding:10px 0 4px}
 .carousel-dots .dot{width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer;padding:0}
@@ -137,7 +136,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-si
 .more img{width:44px;height:44px;border-radius:50%;flex:none}
 .more small{display:block;color:var(--muted);font-size:12px;letter-spacing:2px;text-transform:uppercase}
 .more b{font-family:'Playfair Display',serif;font-weight:600;font-size:17px}
-.more span{margin-left:auto;color:var(--gold);font-size:14px;white-space:nowrap}
+ .more span{margin-left:auto;color:var(--gold);font-size:14px;white-space:nowrap}
 .more:hover{border-color:var(--gold)}
 </style>
 </head>
@@ -154,19 +153,16 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-si
  <summary>Menu ☰</summary>
   <ul class="dropdown-list">
     <li><a href="#top">Home</a></li>
-         <ul class="dropdown-list">
-    <li><a href="#top">Home</a></li>
-    <li><details class="sub-menu"><summary>LEARN ▼</summary><ul style="list-style:none;padding:0;">
-      <li><details class="sub-menu"><summary>Engineering &amp; Science ▼</summary><ul style="list-style:none;padding:0;"><li><a href="#course" style="padding-left:28px;">Labflyer Crash Course — For Future Engineers</a></li></ul></details></li>
-      <li><details class="sub-menu"><summary>Coming Soon ▼</summary><ul style="list-style:none;padding:0;"><li><span style="display:block;padding:12px 14px;padding-left:28px;font-size:15px;color:var(--muted);">Drone Basics — Coming Soon</span></li><li><span style="display:block;padding:12px 14px;padding-left:28px;font-size:15px;color:var(--muted);">How Things Fly — Coming Soon</span></li></ul></details></li>
-    </ul></details></li>
+    <li><button type="button" class="sub-btn" onclick="toggleSub(this)">LEARN ▼</button><ul class="sub-list" style="display:none;">
+     <li><button type="button" class="sub-btn" onclick="toggleSub(this)">Engineering &amp; Science ▼</button><ul class="sub-list" style="display:none;"><li><a href="#course" style="padding-left:28px;">Labflyer Crash Course — For Future Engineers</a></li></ul></li>
+      <li><button type="button" class="sub-btn" onclick="toggleSub(this)">Coming Soon ▼</button><ul class="sub-list" style="display:none;"><li><span style="display:block;padding:12px 14px;padding-left:28px;font-size:15px;color:var(--muted);">Drone Basics — Coming Soon</span></li><li><span style="display:block;padding:12px 14px;padding-left:28px;font-size:15px;color:var(--muted);">How Things Fly — Coming Soon</span></li></ul></li>
+    </ul></li>
     <li><a href="#about">About</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#order">Contact Us</a></li>
-         </ul>
+  </ul>
 </details>
 </nav></div></header>
-
 <main id="top">
 <div class="wrap hero">
 <div>
@@ -182,7 +178,6 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-si
   <div class="carousel-dots" id="hero-dots"></div>
 </div>
 </div>
-
 <section id="kit"><div class="wrap">
 <h2>What's in the kit</h2>
 <p class="sub">Everything you need to go from parts to flying.</p>
@@ -192,7 +187,6 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-si
 <div class="card"><h3>Build guide</h3><p>Clear steps that explain what each part does as you go.</p></div>
 </div>
 </div></section>
-
 <section id="course"><div class="wrap">
 <h2>Crash Course for Future Engineers</h2>
 <p class="sub">Four stages, from parts to proud pilot.</p>
@@ -203,7 +197,6 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-si
 <div class="card"><h3>Fly and improve</h3><p>Take off, test, tweak and make it fly better.</p></div>
 </div>
 </div></section>
- 
 <section id="order"><div class="wrap">
 <h2>Get your kit</h2>
 <p class="sub">Order through WhatsApp and we'll confirm price, delivery and availability.</p>
@@ -213,7 +206,6 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-si
 <a class="btn" href="https://wa.me/27626716857?text=Hello%20OHB%20-%20LABS%2C%20I%27m%20interested%20in%20LabFlyer%20for%20my%20school%20%2F%20kids.%20How%20does%20the%20DIY%20Wooden%20Drone%20STEM%20kit%20work%2C%20and%20how%20do%20I%20order%20one%3F">Order on WhatsApp</a>
 </div>
 </div></section>
-
 <section id="faq"><div class="wrap">
 <h2>Good to know</h2>
 <p class="sub">A few quick answers.</p>
@@ -223,22 +215,19 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-si
 <div><h3>Flying safely</h3><p>Fly in open spaces away from people and animals, and have an adult supervise younger builders.</p></div>
 </div>
 </div></section>
-
 <section style="padding:36px 0"><div class="wrap">
-<a class="more" href="hero-wallpapers.html"><!-- replace # with your wallpaper site link -->
-<img src="logo.png" alt=""><div><small>Also from our labs</small><b>Legendary HERO Wallpapers</b></div><span>View →</span>
-</a></div></section>
+<a class="more" href="hero-wallpapers.html"><img src="logo.png" alt=""><div><small>Also from our labs</small><b>Legendary HERO Wallpapers</b></div><span>View →</span></a>
+</div></section>
 <section id="about"><div class="wrap">
 <h2>About</h2>
 <p class="sub">One Hundred Billions - LABS</p>
 <p style="color:var(--muted);max-width:62ch">One Hundred Billions - LABS is a South African Innovation lab where we build, test and experiment with ideas that bring solutions to real problems. Presenting the LabFlyer, a DIY Wooden Drone kit where kids can build their own quadcopter & enjoy the thrill of that first take off while learning the basics of aerodynamics and electronics. LabFlyer is hands-on STEM learning, and a great way to introduce kids into AI, automation and robotics — the technology behind modern drones. We inspire kids to build today, so they can engineer tomorrow.</p>
 </div></section>
 </main>
-
 <footer><div class="wrap">Labflyer is a product of One Hundred Billions - LABS · South Africa</div></footer>
 <script>
 async function loadCarousel(){
-  const carousel = document.getElementById('hero-carousel');
+ const carousel = document.getElementById('hero-carousel');
   const dotsBox = document.getElementById('hero-dots');
   const repo = '100billions/labs';
   const folder = 'carousel';
@@ -246,9 +235,7 @@ async function loadCarousel(){
   try{
     const res = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}`);
     const files = await res.json();
-    images = files.filter(f => /\.(jpg|jpeg|png|webp|gif|avif)$/i.test(f.name))
-                   .sort((a,b) => a.name.localeCompare(b.name))
-                   .map(f => f.download_url);
+    images = files.filter(f => /\.(jpg|jpeg|png|webp|gif|avif)$/i.test(f.name)).sort((a,b) => a.name.localeCompare(b.name)).map(f => f.download_url);
   }catch(e){ images = []; }
   if(images.length === 0){ images = ['labflyer.webp']; }
   carousel.innerHTML = '';
@@ -261,7 +248,7 @@ async function loadCarousel(){
     const dot = document.createElement('button');
     dot.className = 'dot' + (i===0 ? ' active' : '');
     dot.setAttribute('aria-label', 'Slide ' + (i+1));
-    dot.onclick = () => carousel.scrollTo({left: carousel.clientWidth * i, behavior:'smooth'});
+   dot.onclick = () => carousel.scrollTo({left: carousel.clientWidth * i, behavior:'smooth'});
     dotsBox.appendChild(dot);
   });
   carousel.addEventListener('scroll', () => {
@@ -280,18 +267,14 @@ async function loadCarousel(){
 }
 loadCarousel();
 </script>
- <script>
+<script>
+ function toggleSub(btn){var list=btn.nextElementSibling;if(!list)return;if(list.style.display==='none'||list.style.display===''){list.style.display='block';}else{list.style.display='none';}if(window.event){window.event.stopPropagation();}}
 document.addEventListener('click', function(e){
-  document.querySelectorAll('.menu-dropdown[open]').forEach(function(d){
-    if(!d.contains(e.target)){ d.removeAttribute('open'); }
-  });
+  if(!e.target.closest('.menu-dropdown')){document.querySelectorAll('.menu-dropdown[open]').forEach(function(d){d.removeAttribute('open');});}
 });
 document.querySelectorAll('.dropdown-list a').forEach(function(link){
-  link.addEventListener('click', function(){
-    document.querySelectorAll('.menu-dropdown[open]').forEach(function(d){ d.removeAttribute('open'); });
-  });
+  link.addEventListener('click', function(){document.querySelectorAll('.menu-dropdown[open]').forEach(function(d){d.removeAttribute('open');});});
 });
- </script>
+</script>
 </body>
 </html>
- 
