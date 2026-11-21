@@ -35,7 +35,7 @@ a{color:inherit;text-decoration:none}
   from{ transform: translateX(0); }
   to{ transform: translateX(-50%); }
 }
-header{position:sticky;top:0;z-index:5;background:rgba(11,11,12,0.03);backdrop-filter:blur(2px);border-bottom:1px solid rgba(255,255,255,0.08);transition:transform .3s ease}
+header{position:sticky;top:0;z-index:5;background:rgba(11,11,12,0.03);border-bottom:none;transition:transform .3s ease}
 header.hide-nav{transform:translateY(-100%)}
 nav{display:flex;align-items:center;justify-content:space-between;height:80px}
 .brand{display:flex;align-items:center;gap:10px}
@@ -86,7 +86,7 @@ nav ul a:hover{color:var(--gold)}
 .btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--orange));color:#111;font-weight:600;padding:13px 26px;border-radius:999px;transition:transform .2s}
 .btn:hover{transform:translateY(-2px)}
 .btn.ghost{background:none;border:1px solid var(--gold);color:var(--gold)}
-.hero{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 20px;overflow:hidden;min-height:560px}
+.hero{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:170px 20px 90px;margin-top:-80px;overflow:hidden;min-height:640px}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero > div{position:relative;z-index:1}
 .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:0}
