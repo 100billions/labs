@@ -342,6 +342,7 @@ window.addEventListener('scroll', function(){
   }
   lastScroll = currentScroll;
 }, {passive:true});
+  window.addEventListener('load', function(){ window.dispatchEvent(new Event('scroll')); });
      </script>
 </body>
 </html>
