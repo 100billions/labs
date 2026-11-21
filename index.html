@@ -335,7 +335,7 @@ window.addEventListener('scroll', function(){
     header.classList.remove('hide-nav');
   }
   let rect = eyebrow.getBoundingClientRect();
-  if(rect.top < 80 && rect.bottom > 0){
+  if(rect.top >= 80){
     header.classList.remove('solid-nav');
   } else {
     header.classList.add('solid-nav');
