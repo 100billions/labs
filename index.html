@@ -35,7 +35,8 @@ a{color:inherit;text-decoration:none}
   from{ transform: translateX(0); }
   to{ transform: translateX(-50%); }
 }
-header{position:sticky;top:0;z-index:5;background:#0b0b0c;border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:5;background:rgba(11,11,12,0.03);backdrop-filter:blur(2px);border-bottom:1px solid rgba(255,255,255,0.08);transition:transform .3s ease}
+header.hide-nav{transform:translateY(-100%)}
 nav{display:flex;align-items:center;justify-content:space-between;height:80px}
 .brand{display:flex;align-items:center;gap:10px}
 .brand-text{display:flex;flex-direction:column;line-height:1.4}
@@ -321,5 +322,18 @@ document.querySelectorAll('.dropdown-list a').forEach(function(link){
   link.addEventListener('click', function(){document.querySelectorAll('.menu-dropdown[open]').forEach(function(d){d.removeAttribute('open');});});
 });
 </script>
+ <script>
+let lastScroll = 0;
+const header = document.querySelector('header');
+window.addEventListener('scroll', function(){
+  let currentScroll = window.scrollY;
+  if(currentScroll > 80 && currentScroll > lastScroll){
+    header.classList.add('hide-nav');
+  } else {
+    header.classList.remove('hide-nav');
+  }
+  lastScroll = currentScroll;
+}, {passive:true});
+ </script>
 </body>
 </html>
