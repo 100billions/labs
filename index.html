@@ -138,6 +138,13 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-si
 .more b{font-family:'Playfair Display',serif;font-weight:600;font-size:17px}
  .more span{margin-left:auto;color:var(--gold);font-size:14px;white-space:nowrap}
 .more:hover{border-color:var(--gold)}
+ .brands-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.brand-card{display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 22px;transition:transform .2s}
+.brand-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.brand-card img{width:72px;height:72px;border-radius:50%;object-fit:cover;margin-bottom:14px;border:1px solid var(--line)}
+.brand-card h3{font-size:19px;margin-bottom:6px}
+.brand-card p{color:var(--muted);font-size:14px;margin-bottom:16px}
+.brand-card span{color:var(--gold);font-size:14px;font-weight:600}
 </style>
 </head>
 <body>
@@ -217,6 +224,34 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-si
 </div></section>
 <section style="padding:36px 0"><div class="wrap">
 <a class="more" href="hero-wallpapers.html"><img src="logo.png" alt=""><div><small>Also from our labs</small><b>Legendary HERO Wallpapers</b></div><span>View →</span></a>
+</div></section>
+ <section id="brands"><div class="wrap">
+<h2>Our Brands</h2>
+<p class="sub">More from One Hundred Billions - LABS.</p>
+<div class="brands-grid">
+
+<a class="brand-card" href="#top">
+<img src="logo.png" alt="One Hundred Billions - LABS logo">
+<h3>One Hundred Billions - LABS</h3>
+<p>Innovation lab building hands-on STEM kits and real solutions.</p>
+<span>Explore LABS →</span>
+</a>
+
+<a class="brand-card" href="hero-wallpapers.html">
+<img src="logo.png" alt="Legendary HERO Wallpapers logo">
+<h3>Legendary HERO Wallpapers</h3>
+<p>Bold wallpapers from our labs.</p>
+<span>View Wallpapers →</span>
+</a>
+
+<a class="brand-card" href="#order">
+<img src="logo.png" alt="Labflyer logo">
+<h3>Labflyer</h3>
+<p>DIY Wooden Drone STEM Kit. Build it. Fly it. Learn how it works.</p>
+<span>Get the kit →</span>
+</a>
+
+</div>
 </div></section>
 <section id="about"><div class="wrap">
 <h2>About</h2>
