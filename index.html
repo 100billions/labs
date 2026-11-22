@@ -114,6 +114,9 @@ section{padding:64px 0;border-top:1px solid var(--line)}
  @media(min-width:761px){
   #order .grid{max-width:420px;margin:0 auto}
  }
+ @media(min-width:761px){
+  .hero{min-height:450px}
+ }
 .lic{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
 .lic p,.about p{color:var(--muted)}
 .lic h3{font-size:18px;margin-bottom:8px;color:var(--gold)}
@@ -380,5 +383,14 @@ window.addEventListener('scroll', function(){
 }, {passive:true});
   window.addEventListener('load', function(){ window.dispatchEvent(new Event('scroll')); });
      </script>
+<script>
+  const heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
+    heroVideo.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+    });
+  }
+</script>
 </body>
 </html>
