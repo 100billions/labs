@@ -37,13 +37,14 @@ a{color:inherit;text-decoration:none}
 }
 header{position:sticky;top:0;z-index:5;background:rgba(11,11,12,0.03);border-bottom:none;transition:transform .3s ease, background .4s ease}
 header.solid-nav{background:#0b0b0c;border-bottom:1px solid var(--line)}
+ header.solid-nav .brand img{background:#fff8e7}
 header.hide-nav{transform:translateY(-100%)}
 nav{display:flex;align-items:center;justify-content:space-between;height:80px}
 .brand{display:flex;align-items:center;gap:10px}
 .brand-text{display:flex;flex-direction:column;line-height:1.4}
 .brand-name{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:17px;letter-spacing:.02em;color:var(--text);text-transform:lowercase}
  .brand-labs{font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:12px;letter-spacing:.45em;color:var(--gold);text-transform:uppercase;text-align:center;padding-left:.45em}
-.brand img{width:70px;height:65px;border-radius:50%}
+.brand img{width:65px;height:65px;border-radius:50%;background:rgba(255,248,231,0.01)}
 nav ul{display:flex;gap:22px;list-style:none;font-size:14px;color:var(--muted)}
 nav ul a:hover{color:var(--gold)}
  .menu-dropdown{position:relative}
