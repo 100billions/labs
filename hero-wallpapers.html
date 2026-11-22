@@ -30,24 +30,23 @@ a{color:inherit;text-decoration:none}
 a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
 section,main{scroll-margin-top:72px}
 .wrap{max-width:1050px;margin:0 auto;padding:0 20px}
-header{position:sticky;top:0;z-index:5;background:rgba(11,11,12,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:5;background:rgba(11,11,12,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);transition:transform .3s ease}
+  header.hide-nav{transform:translateY(-100%)}
 nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:80px}
 .brand{display:flex;align-items:center;gap:10px}
 .brand-text{display:flex;flex-direction:column;line-height:1.4}
 .brand-name{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:17px;letter-spacing:.02em;color:var(--text);text-transform:lowercase}
 .brand-labs{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:12px;letter-spacing:.45em;color:var(--gold);text-transform:uppercase;text-align:center;padding-left:.45em}
-.brand img{width:70px;height:70px;border-radius:50%;flex:none}
+.brand img{width:65px;height:65px;border-radius:50%;flex:none;background:rgba(255,248,231,0.95)}
   .menu-dropdown{position:relative}
 .menu-dropdown summary{
   list-style:none;
   cursor:pointer;
-  background: linear-gradient(135deg, var(--gold), var(--orange));
-  color:#111;
-  font-weight:600;
-  font-size:14px;
-  padding:10px 18px;
-  border-radius:999px;
+  background:none;
+  padding:6px 0;
 }
+.burger{display:flex;flex-direction:column;gap:6px;width:28px}
+.burger i{display:block;height:1.5px;width:100%;background:var(--text);border-radius:2px}
 .menu-dropdown summary::-webkit-details-marker{display:none}
 .dropdown-list{
   position:absolute;
@@ -177,7 +176,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
 <header><div class="wrap"><nav>
 <a class="brand" href="#top"><img src="logo.png" alt="One Hundred Billions - LABS logo"><span class="brand-text"><span class="brand-name">one hundred billions</span><span class="brand-labs">LABS</span></span></a>
 <details class="menu-dropdown">
-<summary>Menu ☰</summary>
+<summary><span class="burger"><i></i><i></i><i></i></span></summary>
 <ul class="dropdown-list">
 <li><a href="index.html">Home</a></li>
 <li><a href="#gallery">Gallery</a></li>
@@ -396,6 +395,16 @@ document.querySelectorAll('.dropdown-list a').forEach(function(link){
     document.querySelectorAll('.menu-dropdown[open]').forEach(function(d){ d.removeAttribute('open'); });
   });
 });
+  </script>
+  <script>
+let lastScroll = 0;
+const header = document.querySelector('header');
+window.addEventListener('scroll', function(){
+  let c = window.scrollY;
+  if(c > 80 && c > lastScroll){ header.classList.add('hide-nav'); }
+  else { header.classList.remove('hide-nav'); }
+  lastScroll = c;
+}, {passive:true});
   </script>
 </body>
 </html>
