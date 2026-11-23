@@ -306,6 +306,67 @@ footer{border-top:1px solid transparent;padding:28px 0;text-align:center;font-si
 .menu-row.contact{
   margin-top:8px;
 }
+ /* EVEN SMALLER + FIXES */
+.dropdown-list{
+  min-width:240px;
+  padding:10px 10px 8px;
+}
+.menu-head{
+  font-size:10px;
+  padding:2px 8px 8px;
+}
+.menu-row{
+  gap:10px;
+  padding:8px 8px;
+}
+.menu-icon{
+  width:32px;height:32px;
+  font-size:14px;
+}
+.menu-title{
+  font-size:16px;
+}
+.menu-sub{
+  font-size:12px;
+}
+.dropdown-list .sub-list{
+  padding:2px 0 2px 42px;
+}
+.dropdown-list .sub-list .menu-row{
+  padding:6px 8px;
+}
+.dropdown-list .sub-list .menu-title{font-size:15px}
+.dropdown-list .sub-list .menu-icon{width:28px;height:28px;font-size:12px}
+
+/* 1. Contact Us - NO more always highlighted */
+.menu-row.contact{
+  background:transparent !important;
+  border-left:none !important;
+  margin-top:0 !important;
+}
+.menu-row.contact .menu-title{
+  color:#ece7dd !important;
+}
+.menu-row.contact:hover .menu-title{
+  color:var(--gold) !important;
+}
+
+/* 2. Learn - fix shift to the right */
+.dropdown-list li{
+  list-style:none;
+}
+.dropdown-list button.menu-row{
+  margin:0 !important;
+  padding:8px 8px !important;
+  border:none;
+  background:none;
+  font-family:inherit;
+}
+
+/* 3. Remove hint line */
+.menu-hint{
+  display:none !important;
+}
 </style>
 </head>
 <body>
