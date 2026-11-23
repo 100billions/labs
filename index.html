@@ -87,7 +87,7 @@ nav ul a:hover{color:var(--gold)}
 .btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--orange));color:#111;font-weight:600;padding:13px 26px;border-radius:999px;transition:transform .2s}
 .btn:hover{transform:translateY(-2px)}
 .btn.ghost{background:none;border:1px solid var(--gold);color:var(--gold)}
-.hero{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 20px 64px;margin-top:-80px;overflow:hidden;min-height:380px}
+.hero{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 20px 30px;margin-top:-80px;margin-bottom:64px;overflow:hidden;min-height:380px}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero > div{position:relative;z-index:1}
 .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.30);z-index:0}
@@ -125,7 +125,7 @@ section{padding:64px 0;border-top:1px solid transparent}
 .cta h2{margin-bottom:12px}
  .cta p{color:var(--muted);margin-bottom:26px}
 footer{border-top:1px solid transparent;padding:28px 0;text-align:center;font-size:13px;color:var(--muted)}
-@media(max-width:760px){nav ul{display:none}.hero{grid-template-columns:1fr;padding:90px 0 64px;text-align:center}.hero p{margin-inline:auto;font-size:15px}.hero .btns{justify-content:center}.hero h1{font-size:32px}.brand-name{font-size:14px}.brand-labs{font-size:10px;letter-spacing:.35em}}
+@media(max-width:760px){nav ul{display:none}.hero{grid-template-columns:1fr;padding:90px 0 30px;margin-bottom:64px;text-align:center}.hero p{margin-inline:auto;font-size:15px}.hero .btns{justify-content:center}.hero h1{font-size:32px}.brand-name{font-size:14px}.brand-labs{font-size:10px;letter-spacing:.35em}}
 .art{justify-self:center;width:100%;max-width:560px;aspect-ratio:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(212,166,74,.20),0 0 40px rgba(232,116,42,.15);background:radial-gradient(circle at 50% 40%,#1a1408,#0b0b0c 70%);display:block;position:relative;overflow:hidden}
  .carousel-wrap{position:relative;overflow:hidden;border-radius:18px;width:100%}
 .art::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);animation:shimmer-sweep 3.5s ease-in-out infinite}
