@@ -35,7 +35,7 @@ a{color:inherit;text-decoration:none}
   from{ transform: translateX(0); }
   to{ transform: translateX(-50%); }
 }
-header{position:sticky;top:0;z-index:5;background:rgba(11,11,12,0.03);border-bottom:none;transition:transform .3s ease, background .4s ease}
+header{position:sticky;top:0;z-index:5;background:#0b0b0c;border-bottom:1px solid var(--line);transition:transform .3s ease, background .4s ease}
 header.solid-nav{background:#0b0b0c;border-bottom:1px solid var(--line)}
  header.solid-nav .brand img{background:#fff8e7}
 header.hide-nav{transform:translateY(-100%)}
@@ -87,7 +87,7 @@ nav ul a:hover{color:var(--gold)}
 .btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--orange));color:#111;font-weight:600;padding:13px 26px;border-radius:999px;transition:transform .2s}
 .btn:hover{transform:translateY(-2px)}
 .btn.ghost{background:none;border:1px solid var(--gold);color:var(--gold)}
-.hero{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 20px 30px;margin-top:-80px;overflow:hidden;min-height:380px}
+.hero{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 20px 30px;margin-top:0;overflow:hidden;min-height:380px}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero > div{position:relative;z-index:1}
 .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.30);z-index:0}
