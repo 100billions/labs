@@ -210,7 +210,8 @@ footer{border-top:1px solid transparent;padding:28px 0;text-align:center;font-si
 }
 .menu-text{display:flex;flex-direction:column;line-height:1.3}
 .menu-title{font-family:Inter,system-ui,sans-serif;font-size:14px;color:#ece7dd;font-weight:400}
-.menu-sub{font-size:12px;color:#a39e93}
+.menu-title .arrow{font-size:9px}
+ .menu-sub{font-size:12px;color:#a39e93}
 
 /* Contact Us - same as others, no always highlight */
 .menu-row.contact{
@@ -296,13 +297,13 @@ footer{border-top:1px solid transparent;padding:28px 0;text-align:center;font-si
     <li>
     <button type="button" class="sub-btn menu-row" onclick="toggleSub(this)">
       <span class="menu-icon">✦</span>
-      <span class="menu-text"><span class="menu-title">Learn <span style="font-size:9px">▼</span></span><span class="menu-sub">Courses</span></span>
+      <span class="menu-text"><span class="menu-title">Learn <span class="arrow">▼</span></span><span class="menu-sub">Courses</span></span>
     </button>
     <ul class="sub-list" style="display:none;">
       <li>
         <button type="button" class="sub-btn menu-row" onclick="toggleSub(this)">
           <span class="menu-icon">⚙</span>
-          <span class="menu-text"><span class="menu-title">Engineering & Science ▼</span><span class="menu-sub">Build & understand</span></span>
+          <span class="menu-text"><span class="menu-title">Engineering & Science <span class="arrow">▼</span></span><span class="menu-sub">Build & understand</span></span>
         </button>
         <ul class="sub-list" style="display:none;">
           <li><a class="menu-row" href="#course">
@@ -314,7 +315,7 @@ footer{border-top:1px solid transparent;padding:28px 0;text-align:center;font-si
       <li>
         <button type="button" class="sub-btn menu-row" onclick="toggleSub(this)">
           <span class="menu-icon">🤖</span>
-          <span class="menu-text"><span class="menu-title">AI & Automation ▼</span><span class="menu-sub">AI skills</span></span>
+          <span class="menu-text"><span class="menu-title">AI & Automation <span class="arrow">▼</span></span><span class="menu-sub">AI skills</span></span>
         </button>
         <ul class="sub-list" style="display:none;">
           <li><a class="menu-row" href="#top">
@@ -324,7 +325,7 @@ footer{border-top:1px solid transparent;padding:28px 0;text-align:center;font-si
           <li>
             <button type="button" class="sub-btn menu-row" onclick="toggleSub(this)">
               <span class="menu-icon">💊</span>
-              <span class="menu-text"><span class="menu-title">AI Prompt Engineering ▼</span><span class="menu-sub">Talk to AI right</span></span>
+              <span class="menu-text"><span class="menu-title">AI Prompt Engineering <span class="arrow">▼</span></span><span class="menu-sub">Talk to AI right</span></span>
             </button>
             <ul class="sub-list" style="display:none;">
               <li><span class="sub-note">The Prompt Pill 💊 — Coming Soon</span></li>
