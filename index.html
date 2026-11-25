@@ -274,31 +274,6 @@ footer{border-top:1px solid transparent;padding:28px 0;text-align:center;font-si
 .dropdown-list button:hover,.dropdown-list a:hover,.dropdown-list button.active,.dropdown-list button[aria-expanded="true"],.dropdown-list a.active{background:transparent !important;box-shadow:none !important;transform:none !important}
 .dropdown-list .sub-list{padding-left:60px !important}
 .dropdown-list .sub-list .sub-list{padding-left:20px !important}
-/* Sparkles - tiny + many, only first + last carousel slide */
-#hero-carousel .slide.sparkle{position:relative}
-#hero-carousel .slide.sparkle .spark{
-  position:absolute;
-  z-index:6;
-  color:#fff;
-  text-shadow:0 0 4px #fff,0 0 8px var(--gold);
-  pointer-events:none;
-  animation:twinkle 2s ease-in-out infinite;
-  line-height:1;
-}
-#hero-carousel .sparkle .s1{top:8%;right:10%;font-size:9px}
-#hero-carousel .sparkle .s2{top:16%;left:12%;font-size:7px;animation-delay:.3s}
-#hero-carousel .sparkle .s3{top:28%;right:18%;font-size:10px;animation-delay:.6s}
-#hero-carousel .sparkle .s4{top:38%;left:8%;font-size:8px;animation-delay:.9s}
-#hero-carousel .sparkle .s5{top:48%;right:8%;font-size:7px;animation-delay:.2s}
-#hero-carousel .sparkle .s6{top:58%;left:16%;font-size:9px;animation-delay:.7s}
-#hero-carousel .sparkle .s7{top:68%;right:14%;font-size:8px;animation-delay:1.1s}
-#hero-carousel .sparkle .s8{top:78%;left:10%;font-size:10px;animation-delay:.4s}
-#hero-carousel .sparkle .s9{top:86%;right:20%;font-size:7px;animation-delay:1.3s}
-#hero-carousel .sparkle .s10{top:92%;left:22%;font-size:8px;animation-delay:.8s}
-@keyframes twinkle{
-  0%,100%{opacity:.2;transform:scale(.6)}
-  50%{opacity:1;transform:scale(1.1)}
-}
 </style>
 </head>
 <body>
@@ -586,20 +561,6 @@ window.addEventListener('scroll', function(){
       this.play();
     });
   }
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  setTimeout(function(){
-    var slides = document.querySelectorAll('#hero-carousel .slide');
-    if(slides.length < 2) slides = document.querySelectorAll('#hero-carousel > div');
-    if(slides.length < 2) return;
-    var sparkHtml = '<span class="spark s1">✦</span><span class="spark s2">✦</span><span class="spark s3">✦</span><span class="spark s4">✦</span><span class="spark s5">✦</span><span class="spark s6">✦</span><span class="spark s7">✦</span><span class="spark s8">✦</span><span class="spark s9">✦</span><span class="spark s10">✦</span>';
-    slides[0].classList.add('sparkle');
-    slides[0].insertAdjacentHTML('afterbegin', sparkHtml);
-    slides[slides.length-1].classList.add('sparkle');
-    slides[slides.length-1].insertAdjacentHTML('afterbegin', sparkHtml);
-  }, 500);
-});
 </script>
 </body>
 </html>
