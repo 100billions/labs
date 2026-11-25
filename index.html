@@ -83,7 +83,7 @@ header.hide-nav{transform:translateY(-100%)}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.75),rgba(0,0,0,.35) 55%,rgba(0,0,0,.1));z-index:1}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:12rem;background:linear-gradient(to top,rgba(0,0,0,.85),transparent);z-index:1}
-.hero-inner{position:relative;z-index:2;display:grid;gap:40px;padding:64px 20px 96px;max-width:1180px;margin:0 auto}
+.hero-inner{position:relative;z-index:2;display:grid;gap:40px;padding:48px 20px 72px;max-width:1180px;margin:0 auto}
 .hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(3rem,8vw,6rem);line-height:.9;margin-top:20px}
 .hero h1 em{display:block;color:var(--gold-light);font-style:italic}
 .hero p.lead{margin-top:24px;max-width:36rem;font-size:17px;color:#D4D4D8}
@@ -98,6 +98,7 @@ header.hide-nav{transform:translateY(-100%)}
   @media(max-width:899px){
   .hero-inner{text-align:center}
   .hero p.lead{margin-left:auto;margin-right:auto}
+    .hero .btns{justify-content:center}
   }
 
 /* Section heading */
@@ -266,7 +267,7 @@ footer img{margin:0 auto;height:64px;width:64px;border-radius:50%;object-fit:con
                   </a></li>
                   <li>
                     <button type="button" class="menu-row" aria-expanded="false" onclick="toggleSub(this)">
-                      <span class="menu-icon">💊</span>
+                      
                       <span class="menu-text"><span class="menu-title">AI Prompt Engineering</span><span class="menu-sub">Talk to AI right</span></span>
                       <span class="arrow">▼</span>
                     </button>
