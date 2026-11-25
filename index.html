@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Labflyer DIY Wooden Drone STEM Kit | One Hundred Billions - LABS</title>
+<meta name="description" content="Labflyer: a DIY wooden drone STEM kit with remote controller. A hands-on crash course for future engineers.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F7F3EC;--ink:#0A0A0A;--charcoal:#1A1A1A;--gold:#C5A86A;--gold-dark:#9B7F45;--gold-light:#EAD9A9;
+  --paper:#FFFDF8;--muted:#6B655A;--line:rgba(10,10,10,.13);
+  --surface:var(--cream);--text:var(--ink);--panel:var(--paper);
+  --shadow:0 24px 60px rgba(10,10,10,.12);
+}
+@media (prefers-color-scheme:dark){
+  :root{--surface:#121110;--text:#F7F3EC;--panel:#1A1A1A;--muted:#C7BFAF;--line:rgba(247,243,236,.18);--shadow:0 24px 60px rgba(0,0,0,.35)}
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--surface);color:var(--text);font-family:Manrope,ui-sans-serif,system-ui,sans-serif;line-height:1.6;overflow-x:clip}
+h1,h2,h3,h4,p,ul{margin:0}
+ul{padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;color:inherit}
+img{max-width:100%;display:block}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+.eyebrow{letter-spacing:.24em;text-transform:uppercase;font-size:.68rem;font-weight:800;color:var(--gold)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+section[id]{scroll-margin-top:84px}
+
+/* Announcement bar */
+.announce{background:#0A0A0A;color:var(--gold);overflow:hidden;white-space:nowrap;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding-top:env(safe-area-inset-top,0px)}
+.announce-track{display:inline-flex;padding:10px 0;animation:scroll-a 30s linear infinite}
+.announce-track span{padding-right:0}
+@keyframes scroll-a{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Header */
+header{position:sticky;top:0;z-index:40;background:#F7F3EC;border-bottom:1px solid rgba(10,10,10,.1);transition:transform .3s ease;color:#0A0A0A}
+header.hide-nav{transform:translateY(-100%)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand img{height:52px;width:52px;border-radius:50%;object-fit:contain;background:#FFF8E7;flex:none}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-name{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:22px;letter-spacing:.04em;text-transform:lowercase}
+.brand-labs{margin-top:5px;font-size:9px;font-weight:800;letter-spacing:.42em;color:var(--gold-dark)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.pill-wa{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--gold);color:#6D571F;border-radius:999px;padding:10px 16px;font-size:14px;font-weight:700}
+.pill-wa svg{width:16px;height:16px;fill:currentColor}
+
+/* Dropdown menu */
+.menu-dropdown{position:relative}
+.menu-dropdown summary{list-style:none;cursor:pointer;border:1px solid rgba(10,10,10,.15);border-radius:999px;padding:10px 16px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:10px}
+.menu-dropdown summary::-webkit-details-marker{display:none}
+.burger{display:flex;flex-direction:column;gap:4px;width:16px}
+.burger i{display:block;height:1.5px;background:#0A0A0A;border-radius:2px}
+.dropdown-list{position:absolute;right:0;top:100%;margin-top:12px;width:min(340px,calc(100vw - 32px));background:#FFFDF8;border:1px solid rgba(10,10,10,.12);border-radius:24px;padding:12px;box-shadow:0 24px 60px rgba(10,10,10,.18);color:#0A0A0A}
+.menu-head{padding:4px 10px 10px;font-size:.68rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dark)}
+.menu-row{display:flex;align-items:center;gap:12px;width:100%;padding:10px;border-radius:14px;background:none;border:0;text-align:left;cursor:pointer;transition:background .2s}
+.menu-row:hover{background:rgba(197,168,106,.14)}
+.menu-icon{width:22px;flex:none;text-align:center;color:var(--gold-dark);font-size:14px}
+.menu-text{display:flex;flex-direction:column;line-height:1.25;flex:1}
+.menu-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:20px;font-weight:600}
+.menu-sub{font-size:12px;color:var(--muted)}
+.arrow{font-size:9px;color:var(--gold-dark);transition:transform .2s;display:inline-block}
+[aria-expanded="true"] .arrow{transform:rotate(180deg)}
+.sub-list{display:none;padding-left:22px;margin-left:10px;border-left:1px solid rgba(155,127,69,.4)}
+.sub-list.open{display:block}
+.sub-note{display:block;padding:8px 10px;font-size:13px;color:var(--muted)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 24px;font-size:14px;font-weight:800;transition:transform .2s;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:#171204}
+.btn-ghost{border:1px solid rgba(255,255,255,.7);color:#fff;font-weight:700}
+.btn-ink{background:#0A0A0A;color:#fff}
+.btn-outline{border:1px solid #C5A86A;color:#EAD9A9;font-weight:700}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:#121110;color:#fff}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.75),rgba(0,0,0,.35) 55%,rgba(0,0,0,.1));z-index:1}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:12rem;background:linear-gradient(to top,rgba(0,0,0,.85),transparent);z-index:1}
+.hero-inner{position:relative;z-index:2;display:grid;gap:40px;padding:64px 20px 96px;max-width:1180px;margin:0 auto}
+.hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(3rem,8vw,6rem);line-height:.9;margin-top:20px}
+.hero h1 em{display:block;color:var(--gold-light);font-style:italic}
+.hero p.lead{margin-top:24px;max-width:36rem;font-size:17px;color:#D4D4D8}
+.hero .btns{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
+.chips{display:grid;gap:12px}
+.chip{display:flex;align-items:center;gap:10px;border-radius:18px;padding:14px 18px;font-size:14px;font-weight:700;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.chip b{color:var(--gold-light)}
+@media(min-width:900px){
+  .hero-inner{grid-template-columns:1.25fr .75fr;align-items:end;padding:96px 32px 112px}
+  .chips{justify-items:end}.chip{width:260px}
+}
+
+/* Section heading */
+.sec{padding:64px 0}
+@media(min-width:700px){.sec{padding:96px 0}}
+.sec-head{max-width:42rem}
+.sec-head h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(2.2rem,5vw,3.8rem);line-height:.95;margin-top:12px}
+.sec-head p.copy{margin-top:16px;color:var(--muted);font-size:17px}
+.on-dark .sec-head p.copy{color:#D8D2C7}
+.on-dark .sec-head h2{color:#fff}
+.bg-cream{background:var(--surface);color:var(--text)}
+.bg-paper{background:var(--panel);color:var(--text)}
+.bg-dark{background:linear-gradient(135deg,#1A1A1A,#000);color:#fff}
+.eyebrow.dk{color:var(--gold-dark)}
+
+/* Cards */
+.cards{margin-top:40px;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:#FFFDF8;color:#0A0A0A;border:1px solid rgba(10,10,10,.1);border-radius:28px;padding:30px;box-shadow:0 18px 45px rgba(10,10,10,.08)}
+.card .no{font-family:"Cormorant Garamond",Georgia,serif;font-size:3rem;line-height:1;color:var(--gold)}
+.card h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:2rem;line-height:1;margin-top:28px}
+.card p{margin-top:12px;color:#6B655A}
+
+/* Gallery */
+.gallery-wrap{margin:40px auto 0;max-width:720px}
+.carousel-wrap{position:relative;overflow:hidden;border-radius:28px;border:1px solid rgba(255,255,255,.15);background:#0A0A0A;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.carousel::-webkit-scrollbar{display:none}
+.carousel-slide{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:4/3;overflow:hidden}
+.carousel-slide img{width:100%;height:100%;object-fit:cover}
+.carousel-msg{color:#D8D2C7;font-size:14px;padding:60px 20px;text-align:center;flex:0 0 100%}
+.carousel-dots{display:flex;gap:8px;justify-content:center;padding:14px 0 6px}
+.dot{width:7px;height:7px;border-radius:50%;border:0;background:rgba(255,255,255,.25);cursor:pointer;padding:0}
+.dot.active{background:var(--gold)}
+
+/* Course steps */
+.steps{margin-top:48px;display:grid;gap:1px;background:rgba(10,10,10,.12);border:1px solid rgba(10,10,10,.12);border-radius:28px;overflow:hidden;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.step{background:#FFFDF8;color:#0A0A0A;padding:30px}
+.step .top{display:flex;justify-content:space-between;align-items:center;color:var(--gold-dark);font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.step .big{font-family:"Cormorant Garamond",Georgia,serif;font-size:3.2rem;line-height:1;color:rgba(10,10,10,.12);letter-spacing:0}
+.step h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:2.2rem;line-height:1;margin-top:40px}
+.step p{margin-top:12px;color:#6B655A}
+
+/* Order */
+.order-card{margin:40px auto 0;max-width:460px;overflow:hidden;border-radius:28px;border:1px solid rgba(10,10,10,.1);background:#FFFDF8;color:#0A0A0A;box-shadow:0 18px 45px rgba(10,10,10,.08)}
+.product-art{position:relative;height:230px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(circle at 50% 35%,#fff 0,#EAE0CD 45%,#D8CBAF 100%)}
+.product-art .disc{position:relative;width:150px;height:150px;border-radius:50%;background:#0A0A0A;color:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.product-art .disc::before{content:"";position:absolute;inset:8px;border-radius:50%;border:1px solid rgba(197,168,106,.5)}
+.product-art .disc span{font-family:"Cormorant Garamond",Georgia,serif;font-size:4.5rem;line-height:1}
+.tag{position:absolute;left:20px;top:20px;border-radius:999px;background:rgba(255,255,255,.85);padding:6px 12px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.price{position:absolute;right:20px;bottom:20px;border-radius:999px;background:#0A0A0A;color:#fff;padding:6px 14px;font-size:14px;font-weight:700}
+.order-body{padding:28px}
+.order-body .t{font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark)}
+.order-body h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:2rem;line-height:1.05;margin-top:8px}
+.order-body ul{margin:16px 0 24px}
+.order-body li{position:relative;padding:5px 0 5px 22px;color:#6B655A}
+.order-body li::before{content:"✦";position:absolute;left:0;top:7px;font-size:12px;color:var(--gold-dark)}
+.order-body .btn{width:100%}
+
+/* FAQ */
+.faq{margin-top:40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.faq details{border-top:1px solid var(--line)}
+.faq details:first-child{border-top:0}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.6rem;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"⌄";font-family:Manrope,sans-serif;transition:transform .2s;color:var(--gold-dark)}
+.faq details[open] summary::after{transform:rotate(180deg)}
+.faq p{padding-bottom:22px;max-width:40rem;color:var(--muted)}
+.two{display:grid;gap:40px}
+@media(min-width:900px){.two{grid-template-columns:.8fr 1.2fr}.two .faq{margin-top:0}}
+
+/* Wallpapers link */
+.more{display:flex;align-items:center;gap:16px;max-width:680px;margin:0 auto;border:1px solid var(--line);border-radius:24px;padding:16px 20px;background:var(--panel);box-shadow:var(--shadow);transition:border-color .2s}
+.more:hover{border-color:var(--gold)}
+.more img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none}
+.more small{display:block;font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dark)}
+.more b{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem;font-weight:600;line-height:1.1}
+.more .go{margin-left:auto;font-size:14px;font-weight:700;color:var(--gold-dark);white-space:nowrap}
+
+/* Brands */
+.brands{margin-top:40px;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.brand-card{display:flex;flex-direction:column;align-items:center;text-align:center;background:#FFFDF8;color:#0A0A0A;border:1px solid rgba(10,10,10,.1);border-radius:28px;padding:32px 24px;box-shadow:0 18px 45px rgba(10,10,10,.08);transition:transform .2s,border-color .2s}
+.brand-card:hover{transform:translateY(-3px);border-color:var(--gold)}
+.brand-card img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:1px solid rgba(10,10,10,.12);margin-bottom:18px}
+.brand-card h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.8rem;line-height:1.05}
+.brand-card p{margin:10px 0 18px;color:#6B655A;font-size:14px}
+.brand-card span{margin-top:auto;font-size:14px;font-weight:800;color:var(--gold-dark);text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:6px}
+
+/* About block */
+.about-block{max-width:1180px;margin:0 auto;border-radius:32px;background:#0A0A0A;color:#fff;padding:48px 24px;text-align:center}
+@media(min-width:700px){.about-block{padding:72px 56px}}
+.about-block h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(2.4rem,6vw,4.5rem);line-height:.95;margin-top:16px}
+.about-block .sub{margin-top:12px;color:var(--gold-light);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px}
+.about-block p.body{margin:20px auto 0;max-width:46rem;color:#A1A1AA;font-size:17px;line-height:1.8}
+
+/* Footer */
+footer{background:#0A0A0A;color:#fff;padding:56px 20px 32px;text-align:center;padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
+footer img{margin:0 auto;height:64px;width:64px;border-radius:50%;object-fit:contain;background:#FFF8E7}
+.f-tag{margin-top:12px;font-size:12px;font-weight:800;letter-spacing:.32em;color:#A1A1AA}
+.socials{margin-top:28px;display:flex;gap:14px;justify-content:center}
+.socials a{width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:grid;place-items:center;transition:border-color .2s}
+.socials a:hover{border-color:var(--gold)}
+.socials svg{width:20px;height:20px;fill:#fff}
+.contact-lines{margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.contact-lines a{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600}
+.contact-lines a:hover{color:var(--gold)}
+.contact-lines svg{width:18px;height:18px;fill:var(--gold)}
+.f-btn{margin-top:28px}
+.f-bottom{margin:40px auto 0;max-width:1180px;border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size:12px;line-height:1.6;color:#71717A}
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <div class="announce-track">
+    <span>LABFLYER DIY DRONE KIT NOW AVAILABLE &nbsp;•&nbsp; BUILD IT. FLY IT. LEARN HOW IT WORKS. &nbsp;•&nbsp; ORDER ON WHATSAPP &nbsp;•&nbsp;&nbsp;</span>
+    <span>LABFLYER DIY DRONE KIT NOW AVAILABLE &nbsp;•&nbsp; BUILD IT. FLY IT. LEARN HOW IT WORKS. &nbsp;•&nbsp; ORDER ON WHATSAPP &nbsp;•&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="One Hundred Billions - LABS home">
+      <img src="logo.png" alt="One Hundred Billions - LABS logo">
+      <span class="brand-text"><span class="brand-name">one hundred billions</span><span class="brand-labs">LABS</span></span>
+    </a>
+    <div class="nav-right">
+      <a class="pill-wa" href="https://wa.me/27626716857" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.11.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.44 9.88-9.89 9.88zm8.42-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.47-8.41z"/></svg>
+        WhatsApp
+      </a>
+      <details class="menu-dropdown">
+        <summary aria-label="Open menu"><span class="burger"><i></i><i></i><i></i></span>Menu</summary>
+        <ul class="dropdown-list">
+          <li class="menu-head">Explore The Lab</li>
+
+          <li><a class="menu-row" href="#top">
+            <span class="menu-icon">⌂</span>
+            <span class="menu-text"><span class="menu-title">Home</span><span class="menu-sub">Start here</span></span>
+          </a></li>
+
+          <li>
+            <button type="button" class="menu-row" aria-expanded="false" onclick="toggleSub(this)">
+              <span class="menu-icon">✦</span>
+              <span class="menu-text"><span class="menu-title">Learn</span><span class="menu-sub">Courses</span></span>
+              <span class="arrow">▼</span>
+            </button>
+            <ul class="sub-list">
+              <li>
+                <button type="button" class="menu-row" aria-expanded="false" onclick="toggleSub(this)">
+                  <span class="menu-icon">⚙</span>
+                  <span class="menu-text"><span class="menu-title">Engineering &amp; Science</span><span class="menu-sub">Build &amp; understand</span></span>
+                  <span class="arrow">▼</span>
+                </button>
+                <ul class="sub-list">
+                  <li><a class="menu-row" href="#course">
+                    <span class="menu-text"><span class="menu-title">Crash Course</span><span class="menu-sub">Build · Fly · Learn</span></span>
+                  </a></li>
+                </ul>
+              </li>
+              <li>
+                <button type="button" class="menu-row" aria-expanded="false" onclick="toggleSub(this)">
+                  <span class="menu-icon">🤖</span>
+                  <span class="menu-text"><span class="menu-title">AI &amp; Automation</span><span class="menu-sub">AI skills</span></span>
+                  <span class="arrow">▼</span>
+                </button>
+                <ul class="sub-list">
+                  <li><a class="menu-row" href="#top">
+                    <span class="menu-text"><span class="menu-title">AI Automation</span><span class="menu-sub">Coming soon</span></span>
+                  </a></li>
+                  <li>
+                    <button type="button" class="menu-row" aria-expanded="false" onclick="toggleSub(this)">
+                      <span class="menu-icon">💊</span>
+                      <span class="menu-text"><span class="menu-title">AI Prompt Engineering</span><span class="menu-sub">Talk to AI right</span></span>
+                      <span class="arrow">▼</span>
+                    </button>
+                    <ul class="sub-list">
+                      <li><span class="sub-note">The Prompt Pill 💊 — Coming Soon</span></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li><a class="menu-row" href="#about">
+            <span class="menu-icon">ⓘ</span>
+            <span class="menu-text"><span class="menu-title">About</span><span class="menu-sub">The lab</span></span>
+          </a></li>
+
+          <li><a class="menu-row" href="#faq">
+            <span class="menu-icon">?</span>
+            <span class="menu-text"><span class="menu-title">FAQ</span><span class="menu-sub">Answers</span></span>
+          </a></li>
+
+          <li><a class="menu-row" href="#order">
+            <span class="menu-icon">✉</span>
+            <span class="menu-text"><span class="menu-title">Contact Us</span><span class="menu-sub">Say hello</span></span>
+          </a></li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="01-lab.mp4" type="video/mp4">
+    </video>
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Labflyer · STEM Kit</p>
+        <h1>Build it. Fly it.<em>Learn how it works.</em></h1>
+        <p class="lead">The DIY Wooden Drone STEM Kit comes with the drone and a remote controller. A hands-on crash course that turns curious kids and beginners into future engineers.</p>
+        <div class="btns">
+          <a class="btn btn-gold" href="#order">Get the kit &rarr;</a>
+          <a class="btn btn-ghost" href="#course">See the crash course</a>
+        </div>
+      </div>
+      <aside class="chips" aria-label="Kit highlights">
+        <div class="chip"><b>✦</b> Wooden drone</div>
+        <div class="chip"><b>✦</b> Remote controller included</div>
+        <div class="chip"><b>✦</b> Hands-on STEM learning</div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- KIT -->
+  <section id="kit" class="sec bg-cream">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow dk">In the box</p>
+        <h2>What's in the kit</h2>
+        <p class="copy">Everything you need to go from parts to flying.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><span class="no">01</span><h3>Wooden drone</h3><p>A build-it-yourself wooden airframe you assemble piece by piece.</p></div>
+        <div class="card"><span class="no">02</span><h3>Remote controller</h3><p>Fly your finished drone with the included remote controller.</p></div>
+        <div class="card"><span class="no">03</span><h3>Build guide</h3><p>Clear steps that explain what each part does as you go.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="sec bg-dark on-dark">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Gallery</p>
+        <h2>See Labflyer in action</h2>
+        <p class="copy">Built by hand. Flown with pride.</p>
+      </div>
+      <div class="gallery-wrap">
+        <div class="carousel-wrap">
+          <div class="carousel" id="hero-carousel"><p class="carousel-msg">Loading pictures...</p></div>
+        </div>
+        <div class="carousel-dots" id="hero-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSE -->
+  <section id="course" class="sec bg-paper">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow dk">The crash course</p>
+        <h2>Crash Course for Future Engineers</h2>
+        <p class="copy">Four stages, from parts to proud pilot.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="top"><span>Step</span><span class="big">01</span></div><h3>Build</h3><p>Assemble the wooden frame and learn how the structure carries the load.</p></div>
+        <div class="step"><div class="top"><span>Step</span><span class="big">02</span></div><h3>Understand</h3><p>Discover lift, thrust and balance, and why a drone stays in the air.</p></div>
+        <div class="step"><div class="top"><span>Step</span><span class="big">03</span></div><h3>Set up</h3><p>Connect the parts and pair the remote controller.</p></div>
+        <div class="step"><div class="top"><span>Step</span><span class="big">04</span></div><h3>Fly and improve</h3><p>Take off, test, tweak and make it fly better.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section id="order" class="sec bg-cream">
+    <div class="wrap">
+      <div class="sec-head" style="margin:0 auto;text-align:center">
+        <p class="eyebrow dk">Order</p>
+        <h2>Get your kit</h2>
+        <p class="copy">Order through WhatsApp and we'll confirm price, delivery and availability.</p>
+      </div>
+      <article class="order-card">
+        <div class="product-art">
+          <div class="disc"><span>L</span></div>
+          <span class="tag">STEM Kit</span>
+          <span class="price">Price on request</span>
+        </div>
+        <div class="order-body">
+          <p class="t">Labflyer</p>
+          <h3>DIY Wooden Drone STEM Kit</h3>
+          <ul>
+            <li>Wooden drone, build-it-yourself</li>
+            <li>Remote controller included</li>
+            <li>Hands-on STEM learning</li>
+          </ul>
+          <a class="btn btn-ink" href="https://wa.me/27626716857?text=Hello%20OHB%20-%20LABS%2C%20I%27m%20interested%20in%20LabFlyer%20for%20my%20school%20%2F%20kids.%20How%20does%20the%20DIY%20Wooden%20Drone%20STEM%20kit%20work%2C%20and%20how%20do%20I%20order%20one%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="sec bg-paper">
+    <div class="wrap two">
+      <div class="sec-head">
+        <p class="eyebrow dk">Good to know</p>
+        <h2>A few quick answers.</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Who is it for?</summary><p>Curious kids, students, parents, teachers and anyone who likes building things.</p></details>
+        <details><summary>Do I need experience?</summary><p>No. The build is guided, and you learn by doing.</p></details>
+        <details><summary>Flying safely</summary><p>Fly in open spaces away from people and animals, and have an adult supervise younger builders.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO WALLPAPERS LINK -->
+  <section class="bg-cream" style="padding:56px 0 0">
+    <div class="wrap">
+      <a class="more" href="hero-wallpapers.html">
+        <img src="logo-solid.jpg" alt="">
+        <div><small>Also from our labs</small><b>Legendary HERO Wallpapers</b></div>
+        <span class="go">View &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section id="brands" class="sec bg-cream">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow dk">Our Brands</p>
+        <h2>More from One Hundred Billions - LABS.</h2>
+      </div>
+      <div class="brands">
+        <a class="brand-card" href="#top">
+          <img src="logo-home.webp" alt="OHB Home Tech logo">
+          <h3>OHB Home Tech</h3>
+          <p>Smart, safe and simple home tech that makes everyday living easier.</p>
+          <span>Explore OHB Home Tech →</span>
+        </a>
+        <a class="brand-card" href="hero-wallpapers.html">
+          <img src="logo-solid.jpg" alt="Legendary HERO Wallpapers logo">
+          <h3>Legendary HERO Wallpapers</h3>
+          <p>Bold wallpapers from our labs.</p>
+          <span>View Wallpapers →</span>
+        </a>
+        <a class="brand-card" href="#order">
+          <img src="logo-collection.webp" alt="OHB Collection logo">
+          <h3>OHB Collection</h3>
+          <p>Fragrances and beauty products made to help you smell good, feel confident and show up as you.</p>
+          <span>Explore OHB Collection →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="bg-cream" style="padding:0 20px 64px">
+    <div class="about-block">
+      <p class="eyebrow">About</p>
+      <h2>One Hundred Billions - LABS</h2>
+      <p class="body">One Hundred Billions - LABS is a South African Innovation lab where we build, test and experiment with ideas that bring solutions to real problems. Presenting the LabFlyer, a DIY Wooden Drone kit where kids can build their own quadcopter &amp; enjoy the thrill of that first take off while learning the basics of aerodynamics and electronics. LabFlyer is hands-on STEM learning, and a great way to introduce kids into AI, automation and robotics — the technology behind modern drones. We inspire kids to build today, so they can engineer tomorrow.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="logo.png" alt="One Hundred Billions - LABS logo">
+  <p class="f-tag">BUILD • FLY • LEARN</p>
+
+  <div class="socials">
+    <a href="https://tiktok.com/@onehundredbillions_labs" aria-label="TikTok" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/onehundredbillions_labs?lqvp=aG56anphcmh5aWE=" aria-label="Instagram" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95C23.73 2.7 21.31.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.15A4 4 0 1 1 16 12a4 4 0 0 1-4 3.99zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>
+    </a>
+    <a href="https://wa.me/27626716857" aria-label="WhatsApp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.11.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.44 9.88-9.89 9.88zm8.42-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.47-8.41z"/></svg>
+    </a>
+    <a href="https://facebook.com/onehundredbillions.labs" aria-label="Facebook" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z"/></svg>
+    </a>
+  </div>
+
+  <div class="contact-lines">
+    <a href="tel:+27626716857">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      062 671 6857
+    </a>
+    <a href="mailto:onehundredbillions-labs@gmail.co.za">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      onehundredbillions-labs@gmail.co.za
+    </a>
+  </div>
+
+  <a class="btn btn-outline f-btn" href="#order">Order Labflyer on WhatsApp</a>
+
+  <div class="f-bottom">
+    <p>Labflyer is a product of One Hundred Billions - LABS · South Africa</p>
+  </div>
+</footer>
+
+<script>
+/* Carousel: loads every picture from the "carousel" folder of the GitHub repo */
+async function loadCarousel(){
+  const carousel = document.getElementById('hero-carousel');
+  const dotsBox = document.getElementById('hero-dots');
+  const repo = '100billions/labs';
+  const folder = 'carousel';
+  let images = [];
+  try{
+    const res = await fetch(`https://api.github.com/repos/${repo}/contents/${folder}`);
+    const files = await res.json();
+    images = files.filter(f => /\.(jpg|jpeg|png|webp|gif|avif)$/i.test(f.name))
+                  .sort((a,b) => a.name.localeCompare(b.name))
+                  .map(f => f.download_url);
+  }catch(e){ images = []; }
+  if(images.length === 0){ images = ['labflyer.webp']; }
+  carousel.innerHTML = '';
+  dotsBox.innerHTML = '';
+  images.forEach((src, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'carousel-slide';
+    slide.innerHTML = `<img src="${src}" alt="Labflyer picture ${i+1}">`;
+    carousel.appendChild(slide);
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Slide ' + (i+1));
+    dot.onclick = () => carousel.scrollTo({left: carousel.clientWidth * i, behavior:'smooth'});
+    dotsBox.appendChild(dot);
+  });
+  carousel.addEventListener('scroll', () => {
+    const idx = Math.round(carousel.scrollLeft / carousel.clientWidth);
+    dotsBox.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+  }, {passive:true});
+  let auto = setInterval(nextSlide, 4000);
+  function nextSlide(){
+    const max = carousel.scrollWidth - carousel.clientWidth;
+    if(carousel.scrollLeft >= max - 5){ carousel.scrollTo({left:0, behavior:'smooth'}); }
+    else{ carousel.scrollBy({left: carousel.clientWidth, behavior:'smooth'}); }
+  }
+  carousel.addEventListener('touchstart', () => clearInterval(auto), {passive:true});
+  carousel.addEventListener('mouseenter', () => clearInterval(auto));
+  carousel.addEventListener('mouseleave', () => { clearInterval(auto); auto = setInterval(nextSlide, 4000); });
+}
+loadCarousel();
+
+/* Menu: nested sub-menus + close on outside click / link click */
+function toggleSub(btn){
+  var list = btn.nextElementSibling;
+  if(!list) return;
+  var open = list.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function closeMenu(){
+  document.querySelectorAll('.menu-dropdown[open]').forEach(function(d){ d.removeAttribute('open'); });
+}
+document.addEventListener('click', function(e){
+  if(!e.target.closest('.menu-dropdown')) closeMenu();
+});
+document.querySelectorAll('.dropdown-list a').forEach(function(link){
+  link.addEventListener('click', closeMenu);
+});
+
+/* Header hides when scrolling down, returns when scrolling up */
+var lastScroll = 0;
+var header = document.querySelector('header');
+window.addEventListener('scroll', function(){
+  var current = window.scrollY;
+  if(current > 120 && current > lastScroll){ header.classList.add('hide-nav'); closeMenu(); }
+  else{ header.classList.remove('hide-nav'); }
+  lastScroll = current;
+}, {passive:true});
+
+/* Keep hero video looping */
+var heroVideo = document.querySelector('.hero-video');
+if(heroVideo){
+  heroVideo.addEventListener('ended', function(){ this.currentTime = 0; this.play(); });
+}
+</script>
+</body>
+</html>
