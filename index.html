@@ -314,8 +314,8 @@ footer img{margin:0 auto;height:64px;width:64px;border-radius:50%;object-fit:con
 
   <!-- HERO -->
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="01-lab.mp4" type="video/mp4">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="Labflyer.jpg">
+  <source src="01-lab.mp4" type="video/mp4">
     </video>
     <div class="hero-inner">
       <div>
@@ -589,10 +589,13 @@ window.addEventListener('scroll', function(){
 }, {passive:true});
 
 /* Keep hero video looping */
-var heroVideo = document.querySelector('.hero-video');
+  var heroVideo = document.querySelector('.hero-video');
 if(heroVideo){
-  heroVideo.addEventListener('ended', function(){ this.currentTime = 0; this.play(); });
-  heroVideo.addEventListener('pause', function(){ this.play(); });
+  heroVideo.muted = true;
+  var tryPlay = function(){ var p = heroVideo.play(); if(p){ p.catch(function(){}); } };
+  heroVideo.addEventListener('canplay', tryPlay);
+  heroVideo.addEventListener('loadeddata', tryPlay);
+  tryPlay();
 }
   /* Prompt Pill popup */
 function openPill(){
