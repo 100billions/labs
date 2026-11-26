@@ -561,6 +561,22 @@ async function loadCarousel(){
   carousel.addEventListener('mouseleave', () => { clearInterval(auto); auto = setInterval(nextSlide, 4000); });
 }
 loadCarousel();
+  loadCarousel();
+
+/* Shrink carousel box to current picture - stops black space */
+function fitCarouselHeight(){
+  var wrap = document.querySelector('.carousel-wrap');
+  var carousel = document.getElementById('hero-carousel');
+  if(!wrap || !carousel || !carousel.children.length) return;
+  var idx = Math.round(carousel.scrollLeft / carousel.clientWidth);
+  if(idx < 0) idx = 0;
+  if(idx >= carousel.children.length) idx = carousel.children.length - 1;
+  var slide = carousel.children[idx];
+  if(slide && slide.offsetHeight > 0){ wrap.style.height = slide.offsetHeight + 'px'; }
+}
+setInterval(fitCarouselHeight, 500);
+document.getElementById('hero-carousel').addEventListener('scroll', fitCarouselHeight, {passive:true});
+window.addEventListener('resize', fitCarouselHeight);
 
 /* Menu: nested sub-menus + close on outside click / link click */
 function toggleSub(btn){
