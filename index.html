@@ -95,11 +95,12 @@ header.hide-nav{transform:translateY(-100%)}
   .hero-inner{grid-template-columns:1.25fr .75fr;align-items:end;padding:96px 32px 112px}
   .chips{justify-items:end}.chip{width:260px}
 }
-  @media(max-width:899px){
-  .hero-inner{text-align:center}
+    @media(max-width:899px){
+  .hero-inner{text-align:center;padding:36px 20px 48px}
   .hero p.lead{margin-left:auto;margin-right:auto}
     .hero .btns{justify-content:center}
-  }
+  .hero-video{object-position:center 30%}
+    }
 
 /* Section heading */
 .sec{padding:64px 0}
@@ -601,8 +602,6 @@ if(heroVideo){
 function openPill(){
   var p = document.getElementById('pillPopup');
   if(!p) return;
-  var frame = p.querySelector('.pill-preview');
-  if(frame && !frame.src){ frame.src = frame.getAttribute('data-src'); }
   p.hidden = false;
   document.body.style.overflow = 'hidden';
 }
@@ -626,7 +625,7 @@ document.addEventListener('click', function(e){
     <span class="eyebrow">FREE PDF</span>
     <h3 class="serif">The Prompt Pill 💊</h3>
     <p class="pill-copy">A simple 9-part formula for every image. 30 styles with real examples. Exact prompts you can copy and paste.</p>
-    <iframe class="pill-preview" data-src="The_Prompt_Pill_Workbook.pdf" title="The Prompt Pill Workbook preview"></iframe>
+    <div class="pill-preview" style="display:flex;align-items:center;justify-content:center;font-family:&quot;Cormorant Garamond&quot;,Georgia,serif;font-size:2rem;line-height:1.1;padding:24px;">The Prompt Pill 💊<br>9-part formula · 30 styles</div>
     <a class="btn btn-gold pill-download" href="The_Prompt_Pill_Workbook.pdf" download>Download PDF</a>
     <button type="button" class="pill-later" onclick="closePill()">Maybe later</button>
   </div>
