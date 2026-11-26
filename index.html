@@ -207,6 +207,16 @@ footer img{margin:0 auto;height:64px;width:64px;border-radius:50%;object-fit:con
 .contact-lines svg{width:18px;height:18px;fill:var(--gold)}
 .f-btn{margin-top:28px}
 .f-bottom{margin:40px auto 0;max-width:1180px;border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size:12px;line-height:1.6;color:#71717A}
+/* Prompt Pill floating popup */
+.pill-overlay{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;padding:20px}
+.pill-overlay[hidden]{display:none}
+.pill-box{position:relative;width:100%;max-width:520px;max-height:90vh;overflow:auto;background:#FFFDF8;color:#0A0A0A;border-radius:28px;padding:32px 24px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.pill-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;border:1px solid rgba(10,10,10,.15);background:#fff;cursor:pointer;font-size:14px}
+.pill-box h3{font-size:2.2rem;line-height:1;margin-top:10px}
+.pill-copy{margin:12px auto 18px;max-width:26rem;color:#6B655A;font-size:15px}
+.pill-preview{width:100%;height:320px;border:1px solid rgba(10,10,10,.12);border-radius:16px;background:#F7F3EC}
+.pill-download{width:100%;margin-top:18px}
+.pill-later{display:block;margin:14px auto 0;background:none;border:0;cursor:pointer;font-size:13px;font-weight:700;color:#6B655A}
 </style>
 </head>
 <body>
@@ -272,7 +282,7 @@ footer img{margin:0 auto;height:64px;width:64px;border-radius:50%;object-fit:con
                       <span class="arrow">▼</span>
                     </button>
                     <ul class="sub-list">
-                      <li><span class="sub-note">The Prompt Pill 💊 — Coming Soon</span></li>
+                      <li><button type="button" class="menu-row" onclick="openPill();closeMenu()"><span class="menu-text"><span class="menu-title">The Prompt Pill 💊</span><span class="menu-sub">Free PDF - Get it now</span></span></button></li>
                     </ul>
                   </li>
                 </ul>
@@ -584,6 +594,37 @@ if(heroVideo){
   heroVideo.addEventListener('ended', function(){ this.currentTime = 0; this.play(); });
   heroVideo.addEventListener('pause', function(){ this.play(); });
 }
+  /* Prompt Pill popup */
+function openPill(){
+  var p = document.getElementById('pillPopup');
+  if(!p) return;
+  p.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+function closePill(){
+  var p = document.getElementById('pillPopup');
+  if(!p) return;
+  p.hidden = true;
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closePill();
+});
+document.addEventListener('click', function(e){
+  var p = document.getElementById('pillPopup');
+  if(p && !p.hidden && e.target === p) closePill();
+});
 </script>
+  <div id="pillPopup" class="pill-overlay" hidden>
+  <div class="pill-box">
+    <button type="button" class="pill-close" onclick="closePill()">✕</button>
+    <span class="eyebrow">FREE PDF</span>
+    <h3 class="serif">The Prompt Pill 💊</h3>
+    <p class="pill-copy">A simple 9-part formula for every image. 30 styles with real examples. Exact prompts you can copy and paste.</p>
+    <iframe class="pill-preview" src="The_Prompt_Pill_Workbook.pdf" title="The Prompt Pill Workbook preview"></iframe>
+    <a class="btn btn-gold pill-download" href="The_Prompt_Pill_Workbook.pdf" download>Download PDF</a>
+    <button type="button" class="pill-later" onclick="closePill()">Maybe later</button>
+  </div>
+  </div>
 </body>
 </html>
