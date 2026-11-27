@@ -161,7 +161,8 @@ footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;font-si
   header{position:sticky}
   nav{flex-direction:row;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
   .menu-dropdown{flex:none}
-  .hero{background-size:100% auto;background-position:center top}
+  .hero{background-image:none}
+  .hero::before{display:block;transform:rotate(15deg)}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
